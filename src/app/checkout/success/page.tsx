@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
-export default function CheckoutSuccessPage() {
+function SuccessContent() {
   const searchParams = useSearchParams();
   const orderId = searchParams.get("orderId");
 
@@ -43,4 +44,10 @@ export default function CheckoutSuccessPage() {
   );
 }
 
-
+export default function CheckoutSuccessPage() {
+  return (
+    <Suspense fallback={<div className="page-shell max-w-4xl"><p className="text-sm text-slate-500">Loading...</p></div>}>
+      <SuccessContent />
+    </Suspense>
+  );
+}

@@ -29,21 +29,19 @@ const STORAGE_KEY = "ecommerce_cart_v1";
 
 const CartContext = createContext<CartContextValue | undefined>(undefined);
 
-export function CartProvider({ children }: { children: ReactNode }) {
-  const [items, setItems] = useState<CartItem[]>([]);
+function loadCartFromStorage(): CartItem[] {
+  if (typeof window === "undefined") return [];
+  try {
+    const raw = window.localStorage.getItem(STORAGE_KEY);
+    if (raw) return JSON.parse(raw) as CartItem[];
+  } catch {
+    // ignore
+  }
+  return [];
+}
 
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    try {
-      const raw = window.localStorage.getItem(STORAGE_KEY);
-      if (raw) {
-        const parsed = JSON.parse(raw) as CartItem[];
-        setItems(parsed);
-      }
-    } catch {
-      // ignore
-    }
-  }, []);
+export function CartProvider({ children }: { children: ReactNode }) {
+  const [items, setItems] = useState<CartItem[]>(loadCartFromStorage);
 
   useEffect(() => {
     if (typeof window === "undefined") return;

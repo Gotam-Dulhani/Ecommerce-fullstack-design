@@ -17,7 +17,7 @@ import {
   updateProfile,
   type User,
 } from "firebase/auth";
-import { firebaseAuth } from "../lib/firebase";
+import { getFirebaseAuth } from "../lib/firebase";
 
 type AuthContextValue = {
   user: User | null;
@@ -44,7 +44,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(firebaseAuth, (firebaseUser) => {
+    const unsubscribe = onAuthStateChanged(getFirebaseAuth(), (firebaseUser) => {
       setUser(firebaseUser);
       setLoading(false);
     });
@@ -56,7 +56,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     password: string,
   ): Promise<{ requiresEmailVerification: boolean }> => {
     try {
-      const cred = await signInWithEmailAndPassword(firebaseAuth, email, password);
+      const cred = await signInWithEmailAndPassword(getFirebaseAuth(), email, password);
       if (!cred.user.emailVerified) {
         // Do NOT sign the user out here — keep them signed in and route them to a verify screen.
         // Only send verification emails on explicit user action to avoid rate limits.
@@ -74,7 +74,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     displayName?: string,
   ): Promise<{ requiresEmailVerification: boolean }> => {
     try {
-      const cred = await createUserWithEmailAndPassword(firebaseAuth, email, password);
+      const cred = await createUserWithEmailAndPassword(getFirebaseAuth(), email, password);
       if (displayName?.trim()) {
         await updateProfile(cred.user, { displayName: displayName.trim() });
       }
@@ -87,18 +87,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const refreshUser = async (): Promise<User | null> => {
-    if (!firebaseAuth.currentUser) return null;
-    await reload(firebaseAuth.currentUser);
+    const current = getFirebaseAuth().currentUser;
+    if (!current) return null;
+    await reload(current);
     // Ensure the ID token is refreshed so RTDB rules see updated claims
     // like auth.token.email_verified after the user verifies their email.
-    await firebaseAuth.currentUser.getIdToken(true);
+    await current.getIdToken(true);
     // reload() doesn't trigger onAuthStateChanged; update state manually.
-    setUser(firebaseAuth.currentUser);
-    return firebaseAuth.currentUser;
+    setUser(getFirebaseAuth().currentUser);
+    return getFirebaseAuth().currentUser;
   };
 
   const resendEmailVerification = async () => {
-    const current = firebaseAuth.currentUser;
+    const current = getFirebaseAuth().currentUser;
     if (!current) {
       throw new Error("Please sign in first, then resend the verification email.");
     }
@@ -122,7 +123,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const signOutUser = async () => {
-    await signOut(firebaseAuth);
+    await signOut(getFirebaseAuth());
   };
 
   const adminEmail = process.env.NEXT_PUBLIC_ADMIN_EMAIL;
@@ -154,7 +155,7 @@ function getFirebaseAuthErrorMessage(
   // Firebase auth errors typically look like:
   // { code: "auth/email-already-in-use", message: "...", ... }
   const code =
-    typeof err === "object" && err && "code" in err ? String((err as any).code) : "";
+    typeof err === "object" && err && "code" in err ? String((err as { code?: unknown }).code) : "";
 
   if (code === "auth/operation-not-allowed") {
     return 'Email/Password sign-in is disabled in Firebase. Enable it in Firebase Console → Authentication → Sign-in method → "Email/Password".';

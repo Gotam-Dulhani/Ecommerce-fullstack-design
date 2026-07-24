@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import {
   createProduct,
@@ -12,7 +12,7 @@ import { ProductCard } from "../../components/ProductCard";
 import { SEED_PRODUCTS } from "../../lib/seedCatalog";
 import { CategoriesSidebar } from "../../components/CategoriesSidebar";
 
-export default function ProductsPage() {
+function ProductsContent() {
   const searchParams = useSearchParams();
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
@@ -131,7 +131,7 @@ export default function ProductsPage() {
                 </select>
                 <select
                   value={sort}
-                  onChange={(e) => setSort(e.target.value as any)}
+                  onChange={(e) => setSort(e.target.value as "relevance" | "price_asc" | "price_desc" | "rating")}
                   className="w-full rounded-2xl border border-slate-200 bg-white/80 px-3 py-2 text-sm outline-none shadow-sm shadow-slate-900/5 focus:border-indigo-400 md:w-44"
                 >
                   <option value="relevance">Sort: Relevance</option>
@@ -189,4 +189,10 @@ export default function ProductsPage() {
   );
 }
 
-
+export default function ProductsPage() {
+  return (
+    <Suspense fallback={<div className="page-shell"><p className="text-sm text-slate-500">Loading products...</p></div>}>
+      <ProductsContent />
+    </Suspense>
+  );
+}

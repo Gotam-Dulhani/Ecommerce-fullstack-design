@@ -42,6 +42,11 @@ NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
 
 # email address that is considered "admin" in the UI
 NEXT_PUBLIC_ADMIN_EMAIL=admin@example.com
+
+# Optional: Resend email service for order confirmation emails
+# Sign up at https://resend.com to get these
+RESEND_API_KEY=your_resend_api_key
+ORDER_EMAIL_FROM=ShopNest <onboarding@resend.dev>
 ```
 
 Restart the dev server after changing environment variables.

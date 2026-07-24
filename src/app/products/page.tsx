@@ -270,9 +270,10 @@ function ProductsContent() {
                 value={sort}
                 onChange={(e) => setSort(e.target.value as SortKey)}
                 className="appearance-none rounded-full border border-white/10 bg-white/5 px-4 py-2.5 pr-8 text-xs text-white focus:border-[var(--gold)]/50 focus:outline-none transition-colors cursor-pointer"
+                style={{ colorScheme: "dark" }}
               >
                 {SORT_OPTIONS.map((o) => (
-                  <option key={o.value} value={o.value}>{o.label}</option>
+                  <option key={o.value} value={o.value} className="bg-[#18181b] text-white">{o.label}</option>
                 ))}
               </select>
               <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-3 w-3 -translate-y-1/2 text-zinc-500" />

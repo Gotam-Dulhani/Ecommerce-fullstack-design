@@ -42,8 +42,8 @@ export function Footer() {
         <div className="border-t border-white/5 py-6 flex flex-col items-center justify-between gap-4 sm:flex-row">
           <p className="text-xs text-zinc-600">© {new Date().getFullYear()} ShopNest. All rights reserved.</p>
           <div className="flex items-center gap-6 text-xs text-zinc-600">
-            <span className="cursor-pointer hover:text-zinc-400 transition-colors">Privacy</span>
-            <span className="cursor-pointer hover:text-zinc-400 transition-colors">Terms</span>
+            <Link href="/privacy" className="hover:text-zinc-400 transition-colors">Privacy</Link>
+            <Link href="/terms" className="hover:text-zinc-400 transition-colors">Terms</Link>
           </div>
         </div>
       </div>

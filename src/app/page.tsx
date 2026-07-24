@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { fetchAllProducts, fetchFeaturedProducts, type Product } from "../lib/products";
+import { fetchAllProducts, type Product } from "../lib/products";
 import { ProductCard } from "../components/ProductCard";
 import { ProductGridSkeleton } from "../components/Skeleton";
 
@@ -74,10 +74,12 @@ export default function Home() {
   useEffect(() => {
     void (async () => {
       try {
-        const [featuredData, all] = await Promise.all([
-          fetchFeaturedProducts(),
-          fetchAllProducts(),
-        ]);
+        let all = await fetchAllProducts();
+        if (all.length === 0) {
+          await fetch("/api/seed", { method: "POST" });
+          all = await fetchAllProducts();
+        }
+        const featuredData = all.filter((p) => p.featured);
         setFeatured(featuredData);
         setAllProducts(all);
         setTopRated(

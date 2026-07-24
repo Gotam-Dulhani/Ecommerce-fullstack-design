@@ -26,7 +26,11 @@ function ProductsContent() {
   useEffect(() => {
     void (async () => {
       try {
-        const data = await fetchAllProducts();
+        let data = await fetchAllProducts();
+        if (data.length === 0) {
+          await fetch("/api/seed", { method: "POST" });
+          data = await fetchAllProducts();
+        }
         setProducts(data);
       } finally {
         setLoading(false);

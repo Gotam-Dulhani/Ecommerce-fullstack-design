@@ -6,6 +6,7 @@ import { createProduct, deleteAllProducts, fetchAllProducts, type Product } from
 import { ProductCard } from "../../components/ProductCard";
 import { SEED_PRODUCTS } from "../../lib/seedCatalog";
 import { CategoriesSidebar } from "../../components/CategoriesSidebar";
+import { Search } from "lucide-react";
 
 function ProductsContent() {
   const searchParams = useSearchParams();
@@ -67,29 +68,36 @@ function ProductsContent() {
   }, [products, search, category, sort]);
 
   return (
-    <div className="mx-auto max-w-[1400px] px-6 py-10 lg:px-10">
-      <div className="grid gap-8 md:grid-cols-[220px,1fr]">
-        <CategoriesSidebar selected={category} onSelect={setCategory} categories={categoryCounts} />
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 pt-24">
+      <div className="grid gap-8 lg:grid-cols-[220px,1fr]">
+        <aside className="hidden lg:block">
+          <div className="sticky top-24">
+            <CategoriesSidebar selected={category} onSelect={setCategory} categories={categoryCounts} />
+          </div>
+        </aside>
         <div>
           {/* Header bar */}
-          <div className="rounded-2xl border border-[var(--gray-100)] bg-white p-5">
+          <div className="rounded-xl border border-white/5 bg-[var(--surface)] p-5">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <h1 className="text-[22px] font-bold tracking-[-0.02em] text-[var(--gray-900)]">Shop</h1>
-                <p className="mt-0.5 text-[13px] text-[var(--gray-400)]">{filtered.length} product{filtered.length === 1 ? "" : "s"}</p>
+                <h1 className="text-xl font-bold tracking-tight text-white">Shop</h1>
+                <p className="mt-0.5 text-xs text-zinc-500">{filtered.length} product{filtered.length === 1 ? "" : "s"}</p>
               </div>
               <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
-                <input
-                  type="text"
-                  placeholder="Search..."
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  className="w-full rounded-full border border-[var(--gray-200)] bg-[var(--gray-50)] px-4 py-2.5 text-[13px] outline-none focus:border-[var(--gray-900)] sm:w-56"
-                />
+                <div className="relative">
+                  <Search className="absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-zinc-500" />
+                  <input
+                    type="text"
+                    placeholder="Search..."
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    className="w-full rounded-full border border-white/10 bg-white/5 py-2.5 pl-9 pr-4 text-xs text-white placeholder:text-zinc-500 focus:border-[var(--gold)]/50 focus:outline-none transition-colors sm:w-56"
+                  />
+                </div>
                 <select
                   value={sort}
                   onChange={(e) => setSort(e.target.value as typeof sort)}
-                  className="w-full rounded-full border border-[var(--gray-200)] bg-[var(--gray-50)] px-4 py-2.5 text-[13px] outline-none focus:border-[var(--gray-900)] sm:w-auto"
+                  className="w-full rounded-full border border-white/10 bg-white/5 px-4 py-2.5 text-xs text-white focus:border-[var(--gold)]/50 focus:outline-none transition-colors sm:w-auto appearance-none cursor-pointer"
                 >
                   <option value="relevance">Relevance</option>
                   <option value="rating">Rating</option>
@@ -100,22 +108,36 @@ function ProductsContent() {
             </div>
           </div>
 
+          {/* Mobile category filter */}
+          <div className="mt-4 lg:hidden overflow-x-auto no-scrollbar">
+            <div className="flex gap-2">
+              <button type="button" onClick={() => setCategory("all")} className={`shrink-0 rounded-full px-4 py-2 text-xs font-medium transition-all ${category === "all" ? "bg-[var(--gold)] text-black" : "border border-white/10 text-zinc-400 hover:text-white"}`}>
+                All
+              </button>
+              {categoryCounts.map((c) => (
+                <button key={c.name} type="button" onClick={() => setCategory(c.name)} className={`shrink-0 rounded-full px-4 py-2 text-xs font-medium transition-all ${category === c.name ? "bg-[var(--gold)] text-black" : "border border-white/10 text-zinc-400 hover:text-white"}`}>
+                  {c.name}
+                </button>
+              ))}
+            </div>
+          </div>
+
           {/* Grid */}
           <div className="mt-6">
-            {loading && <p className="text-[13px] text-[var(--gray-400)]">Loading...</p>}
+            {loading && <p className="text-xs text-zinc-500">Loading...</p>}
             {!loading && products.length === 0 && (
-              <div className="rounded-2xl border border-[var(--gray-100)] bg-white p-10 text-center">
-                <p className="text-[15px] font-medium text-[var(--gray-900)]">No products yet.</p>
-                <p className="mt-1 text-[13px] text-[var(--gray-400)]">Seed demo products to get started.</p>
+              <div className="rounded-xl border border-white/5 bg-[var(--surface)] p-10 text-center">
+                <p className="text-sm font-medium text-white">No products yet.</p>
+                <p className="mt-1 text-xs text-zinc-500">Seed demo products to get started.</p>
                 <button type="button" onClick={() => void handleSeed()} disabled={seeding}
-                  className="mt-5 rounded-full bg-[var(--gray-900)] px-6 py-2.5 text-[13px] font-semibold text-white hover:bg-[var(--gray-700)] disabled:opacity-50 transition-colors"
+                  className="mt-5 rounded-full bg-[var(--gold)] px-6 py-2.5 text-xs font-bold text-black hover:bg-[var(--gold-dim)] disabled:opacity-50 transition-colors"
                 >
                   {seeding ? "Seeding..." : "Seed products"}
                 </button>
               </div>
             )}
             {!loading && products.length > 0 && filtered.length === 0 && (
-              <p className="text-[13px] text-[var(--gray-400)]">No products found. Try adjusting your search.</p>
+              <p className="text-xs text-zinc-500">No products found. Try adjusting your search.</p>
             )}
             <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-3 lg:grid-cols-4">
               {filtered.map((product) => (
@@ -131,7 +153,7 @@ function ProductsContent() {
 
 export default function ProductsPage() {
   return (
-    <Suspense fallback={<div className="mx-auto max-w-[1400px] px-6 py-10 lg:px-10"><p className="text-[13px] text-[var(--gray-400)]">Loading...</p></div>}>
+    <Suspense fallback={<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 pt-24"><p className="text-xs text-zinc-500">Loading...</p></div>}>
       <ProductsContent />
     </Suspense>
   );

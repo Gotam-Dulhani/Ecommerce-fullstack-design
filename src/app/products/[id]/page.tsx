@@ -8,6 +8,8 @@ import { useCart } from "../../../context/CartContext";
 import { useAuth } from "../../../context/AuthContext";
 import { RatingStars } from "../../../components/RatingStars";
 import { ProductCard } from "../../../components/ProductCard";
+import { Skeleton } from "../../../components/Skeleton";
+import { Minus, Plus, Truck, Shield, RotateCcw } from "lucide-react";
 
 export default function ProductDetailsPage() {
   const params = useParams<{ id: string }>();
@@ -38,9 +40,9 @@ export default function ProductDetailsPage() {
   if (!loading && !product) notFound();
   if (!product) {
     return (
-      <div className="mx-auto max-w-[1400px] px-6 py-16 lg:px-10">
-        <div className="flex items-center gap-3 text-[13px] text-[var(--gray-400)]">
-          <div className="h-4 w-4 animate-spin rounded-full border-2 border-[var(--gray-200)] border-t-[var(--gray-600)]" />
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 pt-24">
+        <div className="flex items-center gap-3 text-sm text-zinc-500">
+          <Skeleton className="h-4 w-4 rounded-full" />
           Loading...
         </div>
       </div>
@@ -55,31 +57,31 @@ export default function ProductDetailsPage() {
   };
 
   return (
-    <div className="mx-auto max-w-[1400px] px-6 py-8 lg:px-10">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 pt-24">
       {/* Breadcrumbs */}
-      <nav className="flex items-center gap-2 text-[12px] text-[var(--gray-400)] mb-8">
-        <Link href="/" className="hover:text-[var(--gray-900)] transition-colors">Home</Link>
-        <span className="text-[var(--gray-300)]">/</span>
-        <Link href="/products" className="hover:text-[var(--gray-900)] transition-colors">Shop</Link>
-        <span className="text-[var(--gray-300)]">/</span>
-        <Link href={`/products?q=${encodeURIComponent(product.category)}`} className="hover:text-[var(--gray-900)] transition-colors">{product.category}</Link>
-        <span className="text-[var(--gray-300)]">/</span>
-        <span className="text-[var(--gray-900)] font-medium truncate max-w-[200px]">{product.name}</span>
+      <nav className="flex items-center gap-2 text-xs text-zinc-500 mb-8">
+        <Link href="/" className="hover:text-white transition-colors">Home</Link>
+        <span className="text-zinc-700">/</span>
+        <Link href="/products" className="hover:text-white transition-colors">Shop</Link>
+        <span className="text-zinc-700">/</span>
+        <Link href={`/products?category=${encodeURIComponent(product.category)}`} className="hover:text-white transition-colors">{product.category}</Link>
+        <span className="text-zinc-700">/</span>
+        <span className="text-white font-medium truncate max-w-[200px]">{product.name}</span>
       </nav>
 
       <div className="grid gap-12 lg:grid-cols-[1.3fr,1fr] lg:items-start">
         {/* Image */}
-        <div className="overflow-hidden bg-[var(--gray-50)]">
+        <div className="overflow-hidden rounded-xl bg-[var(--surface)] border border-white/5">
           <div className="relative aspect-[4/5] w-full">
             {product.image ? (
               <img src={product.image} alt={product.name} className="block h-full w-full object-cover" style={{ height: "100%", width: "100%", objectFit: "cover" }} />
             ) : (
-              <div className="flex h-full w-full items-center justify-center bg-[var(--gray-100)]">
-                <svg className="h-10 w-10 text-[var(--gray-300)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" /><circle cx="9" cy="9" r="2" /><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" /></svg>
+              <div className="flex h-full w-full items-center justify-center bg-[var(--surface)]">
+                <span className="text-xs text-zinc-600">No image</span>
               </div>
             )}
             {product.featured && (
-              <span className="absolute left-4 top-4 rounded-full bg-[var(--amber)] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-white">
+              <span className="absolute left-4 top-4 rounded-full bg-[var(--gold)] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-black">
                 Featured
               </span>
             )}
@@ -89,31 +91,34 @@ export default function ProductDetailsPage() {
         {/* Details */}
         <div className="space-y-6 lg:sticky lg:top-28">
           <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[var(--gray-400)]">{product.category}</p>
-            <h1 className="mt-2 text-[28px] font-bold tracking-[-0.02em] text-[var(--gray-900)] sm:text-[36px]">
+            <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-zinc-500">{product.category}</p>
+            <h1 className="mt-2 text-3xl sm:text-4xl font-bold tracking-tight text-white">
               {product.name}
             </h1>
           </div>
 
           {typeof product.rating === "number" ? (
-            <RatingStars rating={product.rating} count={product.ratingCount} size="md" />
+            <div className="flex items-center gap-2">
+              <RatingStars rating={product.rating} size={16} />
+              {typeof product.ratingCount === "number" && <span className="text-xs text-zinc-500">({product.ratingCount})</span>}
+            </div>
           ) : (
-            <p className="text-[12px] text-[var(--gray-400)]">No ratings yet</p>
+            <p className="text-xs text-zinc-500">No ratings yet</p>
           )}
 
-          <p className="text-[15px] leading-relaxed text-[var(--gray-500)]">
+          <p className="text-sm leading-relaxed text-zinc-400">
             {product.description}
           </p>
 
           <div className="flex items-baseline gap-4">
-            <span className="text-[32px] font-bold tracking-[-0.02em] text-[var(--gray-900)]">${product.price.toFixed(2)}</span>
+            <span className="text-3xl font-bold tracking-tight text-[var(--gold)]">${product.price.toFixed(2)}</span>
             {typeof product.stock === "number" && product.stock > 0 && (
-              <span className="rounded-full bg-[var(--green-light)] px-3 py-1 text-[12px] font-semibold text-[var(--green)]">
+              <span className="rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-semibold text-emerald-500">
                 In stock ({product.stock})
               </span>
             )}
             {typeof product.stock === "number" && product.stock <= 0 && (
-              <span className="rounded-full bg-[var(--red-light)] px-3 py-1 text-[12px] font-semibold text-[var(--red)]">
+              <span className="rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-500">
                 Out of stock
               </span>
             )}
@@ -121,39 +126,48 @@ export default function ProductDetailsPage() {
 
           {/* Quantity + CTA */}
           <div className="flex flex-wrap items-center gap-4">
-            <div className="inline-flex items-center rounded-full border border-[var(--gray-200)] bg-white">
+            <div className="inline-flex items-center rounded-full border border-white/10 bg-white/5">
               <button type="button" onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                className="flex h-12 w-12 items-center justify-center text-[var(--gray-400)] hover:text-[var(--gray-900)] transition-colors"
+                className="flex h-12 w-12 items-center justify-center text-zinc-400 hover:text-white transition-colors"
                 aria-label="Decrease quantity">
-                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14" /></svg>
+                <Minus className="h-4 w-4" />
               </button>
-              <span className="w-10 text-center text-[15px] font-semibold text-[var(--gray-900)]">{quantity}</span>
+              <span className="w-10 text-center text-sm font-semibold text-white">{quantity}</span>
               <button type="button" onClick={() => setQuantity(Math.min(product?.stock ?? 99, quantity + 1))}
-                className="flex h-12 w-12 items-center justify-center text-[var(--gray-400)] hover:text-[var(--gray-900)] transition-colors"
+                className="flex h-12 w-12 items-center justify-center text-zinc-400 hover:text-white transition-colors"
                 aria-label="Increase quantity">
-                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 5v14M5 12h14" /></svg>
+                <Plus className="h-4 w-4" />
               </button>
             </div>
             <button type="button" onClick={handleAddToCart}
-              className="flex-1 rounded-full bg-[var(--gray-900)] py-3.5 px-8 text-[13px] font-bold uppercase tracking-[0.1em] text-white hover:bg-[var(--gray-700)] transition-colors sm:flex-none"
+              className="flex-1 rounded-full bg-[var(--gold)] py-3.5 px-8 text-xs font-bold uppercase tracking-wider text-black hover:bg-[var(--gold-dim)] transition-colors sm:flex-none"
             >
               {added ? "Added to cart" : "Add to cart"}
             </button>
           </div>
 
           {/* Trust */}
-          <div className="grid grid-cols-3 gap-4 rounded-2xl border border-[var(--gray-100)] bg-[var(--gray-50)] p-5">
-            <div className="text-center">
-              <p className="text-[12px] font-semibold text-[var(--gray-900)]">Free shipping</p>
-              <p className="text-[11px] text-[var(--gray-400)]">Over $150</p>
+          <div className="grid grid-cols-3 gap-4 rounded-xl border border-white/5 bg-[var(--surface)] p-5">
+            <div className="flex flex-col items-center gap-2 text-center">
+              <Truck className="h-5 w-5 text-[var(--gold)]" />
+              <div>
+                <p className="text-xs font-semibold text-white">Free shipping</p>
+                <p className="text-[10px] text-zinc-500">Over $150</p>
+              </div>
             </div>
-            <div className="text-center">
-              <p className="text-[12px] font-semibold text-[var(--gray-900)]">Secure</p>
-              <p className="text-[11px] text-[var(--gray-400)]">SSL encrypted</p>
+            <div className="flex flex-col items-center gap-2 text-center">
+              <Shield className="h-5 w-5 text-[var(--gold)]" />
+              <div>
+                <p className="text-xs font-semibold text-white">Secure</p>
+                <p className="text-[10px] text-zinc-500">SSL encrypted</p>
+              </div>
             </div>
-            <div className="text-center">
-              <p className="text-[12px] font-semibold text-[var(--gray-900)]">Returns</p>
-              <p className="text-[11px] text-[var(--gray-400)]">30-day</p>
+            <div className="flex flex-col items-center gap-2 text-center">
+              <RotateCcw className="h-5 w-5 text-[var(--gold)]" />
+              <div>
+                <p className="text-xs font-semibold text-white">Returns</p>
+                <p className="text-[10px] text-zinc-500">30-day</p>
+              </div>
             </div>
           </div>
         </div>
@@ -163,8 +177,8 @@ export default function ProductDetailsPage() {
       {related.length > 0 && (
         <section className="mt-24">
           <div className="flex items-end justify-between">
-            <h2 className="text-[22px] font-bold tracking-[-0.02em] text-[var(--gray-900)]">You may also like</h2>
-            <Link href={`/products?q=${encodeURIComponent(product.category)}`} className="text-[13px] font-semibold text-[var(--gray-400)] hover:text-[var(--gray-900)] transition-colors">
+            <h2 className="text-2xl font-bold tracking-tight text-white">You may also like</h2>
+            <Link href={`/products?category=${encodeURIComponent(product.category)}`} className="text-xs font-semibold text-zinc-500 hover:text-white transition-colors">
               View all &rarr;
             </Link>
           </div>

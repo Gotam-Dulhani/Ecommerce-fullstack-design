@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useAuth } from "../../../context/AuthContext";
+import { Mail, Lock, User } from "lucide-react";
 
 export default function SignupPage() {
   const { signUp } = useAuth();
@@ -28,51 +29,63 @@ export default function SignupPage() {
     finally { setSubmitting(false); }
   };
 
-  const inputClass = "w-full rounded-xl border border-[var(--gray-200)] bg-white px-4 py-3.5 text-[15px] text-[var(--gray-900)] placeholder:text-[var(--gray-300)] focus:border-[var(--gray-900)] focus:outline-none transition-colors";
+  const inputClass = "w-full rounded-xl border border-white/10 bg-white/5 py-3 pl-10 pr-4 text-sm text-white placeholder:text-zinc-600 focus:border-[var(--gold)]/50 focus:outline-none transition-colors";
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[var(--off-white)] px-6">
+    <div className="flex min-h-screen items-center justify-center bg-[var(--background)] px-6">
       <div className="w-full max-w-[400px] space-y-8">
         <div className="text-center">
-          <Link href="/" className="text-[26px] font-black tracking-[-0.03em] text-[var(--gray-900)]">
-            SHOPNEST<span className="text-[var(--amber)]">.</span>
+          <Link href="/" className="text-2xl font-black tracking-widest text-white uppercase">
+            SHOPNEST<span className="text-[var(--gold)]">.</span>
           </Link>
         </div>
         <div>
-          <h1 className="text-[32px] font-bold tracking-[-0.03em] text-[var(--gray-900)]">Create account</h1>
-          <p className="mt-2 text-[15px] text-[var(--gray-400)]">Join ShopNest and start shopping.</p>
+          <h1 className="text-3xl font-bold tracking-tight text-white">Create account</h1>
+          <p className="mt-2 text-sm text-zinc-400">Join ShopNest and start shopping.</p>
         </div>
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <label className="mb-2 block text-[12px] font-bold uppercase tracking-[0.1em] text-[var(--gray-600)]">Full name</label>
-            <input type="text" required placeholder="John Doe" value={fullName} onChange={(e) => setFullName(e.target.value)} className={inputClass} />
+            <label className="mb-2 block text-xs font-bold uppercase tracking-wider text-zinc-400">Full name</label>
+            <div className="relative">
+              <User className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-600" />
+              <input type="text" required placeholder="John Doe" value={fullName} onChange={(e) => setFullName(e.target.value)} className={inputClass} />
+            </div>
           </div>
           <div>
-            <label className="mb-2 block text-[12px] font-bold uppercase tracking-[0.1em] text-[var(--gray-600)]">Email</label>
-            <input type="email" required placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} className={inputClass} />
+            <label className="mb-2 block text-xs font-bold uppercase tracking-wider text-zinc-400">Email</label>
+            <div className="relative">
+              <Mail className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-600" />
+              <input type="email" required placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} className={inputClass} />
+            </div>
           </div>
           <div>
-            <label className="mb-2 block text-[12px] font-bold uppercase tracking-[0.1em] text-[var(--gray-600)]">Password</label>
-            <input type="password" required minLength={8} placeholder="Min. 8 characters" value={password} onChange={(e) => setPassword(e.target.value)} className={inputClass} />
+            <label className="mb-2 block text-xs font-bold uppercase tracking-wider text-zinc-400">Password</label>
+            <div className="relative">
+              <Lock className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-600" />
+              <input type="password" required minLength={8} placeholder="Min. 8 characters" value={password} onChange={(e) => setPassword(e.target.value)} className={inputClass} />
+            </div>
           </div>
           <div>
-            <label className="mb-2 block text-[12px] font-bold uppercase tracking-[0.1em] text-[var(--gray-600)]">Confirm password</label>
-            <input type="password" required minLength={8} placeholder="Re-enter password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} className={inputClass} />
+            <label className="mb-2 block text-xs font-bold uppercase tracking-wider text-zinc-400">Confirm password</label>
+            <div className="relative">
+              <Lock className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-600" />
+              <input type="password" required minLength={8} placeholder="Re-enter password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} className={inputClass} />
+            </div>
             {confirmPassword.length > 0 && (
-              <p className={`mt-2 text-[12px] font-medium ${password === confirmPassword ? "text-[var(--green)]" : "text-[var(--red)]"}`}>
+              <p className={`mt-2 text-xs font-medium ${password === confirmPassword ? "text-emerald-500" : "text-red-500"}`}>
                 {password === confirmPassword ? "Passwords match" : "Passwords don't match"}
               </p>
             )}
           </div>
-          {error && <p className="rounded-xl bg-[var(--red-light)] px-4 py-3 text-[13px] text-[var(--red)]">{error}</p>}
+          {error && <p className="rounded-lg bg-red-500/10 px-4 py-3 text-xs text-red-500">{error}</p>}
           <button type="submit" disabled={submitting}
-            className="w-full rounded-full bg-[var(--gray-900)] py-3.5 text-[13px] font-bold uppercase tracking-[0.1em] text-white hover:bg-[var(--gray-700)] transition-colors disabled:opacity-50">
+            className="w-full rounded-full bg-[var(--gold)] py-3.5 text-xs font-bold uppercase tracking-wider text-black hover:bg-[var(--gold-dim)] transition-colors disabled:opacity-50">
             {submitting ? "Creating..." : "Create account"}
           </button>
         </form>
-        <p className="text-center text-[14px] text-[var(--gray-400)]">
+        <p className="text-center text-sm text-zinc-500">
           Already have an account?{" "}
-          <Link href="/auth/login" className="font-semibold text-[var(--gray-900)] hover:underline">Sign in</Link>
+          <Link href="/auth/login" className="font-semibold text-[var(--gold)] hover:underline">Sign in</Link>
         </p>
       </div>
     </div>

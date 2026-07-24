@@ -14,8 +14,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "ShopNest",
-  description: "Shop premium products with confidence.",
+  title: "SHOPNEST — Premium Lifestyle",
+  description: "Curated premium products for the modern connoisseur.",
 };
 
 export default function RootLayout({
@@ -24,13 +24,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body className={`${inter.variable} antialiased`}>
         <AuthProvider>
           <ConfigBanner />
           <CartProvider>
             <Navbar />
-            <main>{children}</main>
+            <main className="min-h-screen">{children}</main>
             <Footer />
           </CartProvider>
         </AuthProvider>

@@ -2,213 +2,141 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useCart } from "../context/CartContext";
+import { Search, ShoppingBag, User, Menu, X, LogOut, LayoutDashboard } from "lucide-react";
 
 export function Navbar() {
+  const { user, isAdmin, signOutUser } = useAuth();
+  const { totalItems } = useCart();
   const pathname = usePathname();
   const router = useRouter();
-  const { user, signOutUser, isAdmin } = useAuth();
-  const { totalItems } = useCart();
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
-  const [q, setQ] = useState("");
+  const [search, setSearch] = useState("");
+  const [scrolled, setScrolled] = useState(false);
   const userMenuRef = useRef<HTMLDivElement>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    function handleClickOutside(e: MouseEvent) {
-      if (userMenuRef.current && !userMenuRef.current.contains(e.target as Node)) {
-        setUserMenuOpen(false);
-      }
-    }
-    if (userMenuOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-      return () => document.removeEventListener("mousedown", handleClickOutside);
-    }
-  }, [userMenuOpen]);
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-  const closeMobileMenu = useCallback(() => setMenuOpen(false), []);
+  const closeMenus = () => {
+    setMobileOpen(false);
+    setSearchOpen(false);
+    setUserMenuOpen(false);
+  };
+
+  useEffect(() => {
+    if (searchOpen) searchInputRef.current?.focus();
+  }, [searchOpen]);
+
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (userMenuRef.current && !userMenuRef.current.contains(e.target as Node)) setUserMenuOpen(false);
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
+
+  function handleSearch(e: React.FormEvent) {
+    e.preventDefault();
+    if (search.trim()) { router.push(`/products?q=${encodeURIComponent(search.trim())}`); setSearch(""); setSearchOpen(false); }
+  }
 
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/products", label: "Shop" },
-    ...(isAdmin ? [{ href: "/admin", label: "Admin" }] : []),
   ];
 
-  const isActive = (path: string) =>
-    path === "/" ? pathname === "/" : pathname.startsWith(path) && path !== "/";
-
-  const displayName = user?.displayName?.trim() || user?.email?.split("@")[0] || "Account";
-  const avatarLetter = (displayName?.trim()?.[0] ?? "U").toUpperCase();
-
   return (
-    <header className="sticky top-0 z-50 bg-[var(--off-white)]/80 backdrop-blur-xl border-b border-[var(--gray-100)]">
-      <div className="mx-auto flex h-[72px] max-w-[1400px] items-center justify-between px-6 lg:px-10">
-        {/* Left */}
-        <div className="flex items-center gap-6">
-          <button
-            type="button"
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="lg:hidden flex flex-col gap-[5px]"
-            aria-label="Menu"
-          >
-            <span className={`block h-[1.5px] w-5 bg-[var(--gray-900)] transition-all duration-300 ${menuOpen ? "translate-y-[6.5px] rotate-45" : ""}`} />
-            <span className={`block h-[1.5px] w-5 bg-[var(--gray-900)] transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
-            <span className={`block h-[1.5px] w-5 bg-[var(--gray-900)] transition-all duration-300 ${menuOpen ? "-translate-y-[6.5px] -rotate-45" : ""}`} />
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "glass border-b border-white/5" : "bg-transparent"}`}>
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center gap-8">
+          <button type="button" onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden p-1 text-zinc-400 hover:text-white transition-colors" aria-label="Menu">
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
-          <Link href="/" className="text-[22px] font-black tracking-[-0.03em] text-[var(--gray-900)]">
-            SHOPNEST<span className="text-[var(--amber)]">.</span>
+          <Link href="/" className="text-lg font-black tracking-widest text-white uppercase">
+            SHOPNEST<span className="text-[var(--gold)]">.</span>
           </Link>
+          <nav className="hidden lg:flex items-center gap-1">
+            {navLinks.map((l) => (
+              <Link key={l.href} href={l.href} onClick={closeMenus} className={`relative px-3 py-2 text-xs font-medium uppercase tracking-widest transition-colors ${pathname === l.href ? "text-white" : "text-zinc-400 hover:text-zinc-200"}`}>
+                {l.label}
+                {pathname === l.href && <span className="absolute bottom-0 left-3 right-3 h-px bg-[var(--gold)]" />}
+              </Link>
+            ))}
+            {isAdmin && (
+              <Link href="/admin" onClick={closeMenus} className={`relative px-3 py-2 text-xs font-medium uppercase tracking-widest transition-colors ${pathname === "/admin" ? "text-white" : "text-zinc-400 hover:text-zinc-200"}`}>
+                Admin
+              </Link>
+            )}
+          </nav>
         </div>
 
-        {/* Center */}
-        <nav className="hidden lg:flex items-center gap-10">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`relative text-[13px] font-semibold uppercase tracking-[0.12em] transition-colors duration-200 ${
-                isActive(link.href) ? "text-[var(--gray-900)]" : "text-[var(--gray-400)] hover:text-[var(--gray-900)]"
-              }`}
-            >
-              {link.label}
-              {isActive(link.href) && (
-                <span className="absolute -bottom-1 left-0 h-[1.5px] w-full bg-[var(--gray-900)]" />
-              )}
-            </Link>
-          ))}
-        </nav>
-
-        {/* Right */}
-        <div className="flex items-center gap-2">
-          {/* Search */}
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              const query = q.trim();
-              router.push(query ? `/products?q=${encodeURIComponent(query)}` : "/products");
-            }}
-            className="hidden lg:block"
-          >
-            <div className="relative">
-              <svg className="absolute left-3 top-1/2 h-[14px] w-[14px] -translate-y-1/2 text-[var(--gray-400)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
-              </svg>
-              <input
-                value={q}
-                onChange={(e) => setQ(e.target.value)}
-                placeholder="Search"
-                className="w-48 rounded-full border border-[var(--gray-200)] bg-transparent py-2 pl-9 pr-4 text-[13px] placeholder:text-[var(--gray-300)] focus:border-[var(--gray-900)] focus:outline-none transition-colors"
-              />
-            </div>
-          </form>
-
-          {/* Cart */}
-          <Link href="/cart" className="relative flex h-10 w-10 items-center justify-center rounded-full text-[var(--gray-600)] hover:bg-[var(--gray-100)] transition-colors">
-            <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
-              <path d="M3 6h18" />
-              <path d="M16 10a4 4 0 0 1-8 0" />
-            </svg>
-            {totalItems > 0 && (
-              <span className="absolute -right-0 -top-0 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-[var(--gray-900)] px-1 text-[10px] font-bold text-white">
-                {totalItems > 99 ? "99+" : totalItems}
-              </span>
-            )}
-          </Link>
-
-          {/* Auth */}
+        <div className="flex items-center gap-1">
+          <button type="button" onClick={() => setSearchOpen(!searchOpen)} className="flex h-9 w-9 items-center justify-center rounded-full text-zinc-400 hover:text-white hover:bg-white/5 transition-all" aria-label="Search">
+            <Search className="h-4 w-4" />
+          </button>
           {user ? (
-            <div className="relative" ref={userMenuRef}>
-              <button
-                type="button"
-                onClick={() => setUserMenuOpen(!userMenuOpen)}
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--gray-900)] text-[11px] font-bold text-white hover:bg-[var(--gray-700)] transition-colors"
-              >
-                {avatarLetter}
+            <div ref={userMenuRef} className="relative">
+              <button type="button" onClick={() => setUserMenuOpen(!userMenuOpen)} className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--gold)]/10 text-[var(--gold)] text-xs font-bold uppercase transition-all hover:bg-[var(--gold)]/20">
+                {user.email?.[0]}
               </button>
               {userMenuOpen && (
-                <div className="absolute right-0 mt-3 w-60 overflow-hidden rounded-2xl border border-[var(--gray-100)] bg-white shadow-[0_20px_60px_-12px_rgba(0,0,0,0.12)] animate-scale-in">
-                  <div className="border-b border-[var(--gray-100)] px-5 py-4">
-                    <p className="text-sm font-semibold text-[var(--gray-900)]">{displayName}</p>
-                    {user.email && <p className="mt-0.5 truncate text-xs text-[var(--gray-400)]">{user.email}</p>}
-                  </div>
-                  <div className="p-2">
-                    <button
-                      type="button"
-                      onClick={() => { setUserMenuOpen(false); void signOutUser(); }}
-                      className="flex w-full items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-medium text-[var(--gray-600)] hover:bg-[var(--gray-50)] hover:text-[var(--gray-900)] transition-colors"
-                    >
-                      <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /><polyline points="16 17 21 12 16 7" /><line x1="21" x2="9" y1="12" y2="12" />
-                      </svg>
-                      Sign out
-                    </button>
-                  </div>
+                <div className="absolute right-0 top-full mt-2 w-48 rounded-xl border border-white/10 bg-[var(--surface)] p-1.5 shadow-2xl animate-scale-in">
+                  <div className="px-3 py-2 text-xs text-zinc-500 truncate border-b border-white/5 mb-1">{user.email}</div>
+                  <Link href="/cart" onClick={closeMenus} className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-zinc-300 hover:bg-white/5 hover:text-white transition-colors">
+                    <ShoppingBag className="h-4 w-4" /> Cart
+                  </Link>
+                  {isAdmin && (
+                    <Link href="/admin" onClick={closeMenus} className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-zinc-300 hover:bg-white/5 hover:text-white transition-colors">
+                      <LayoutDashboard className="h-4 w-4" /> Dashboard
+                    </Link>
+                  )}
+                  <button type="button" onClick={() => void signOutUser()} className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm text-zinc-300 hover:bg-white/5 hover:text-white transition-colors">
+                    <LogOut className="h-4 w-4" /> Sign out
+                  </button>
                 </div>
               )}
             </div>
           ) : (
-            <Link
-              href="/auth/login"
-              className="rounded-full bg-[var(--gray-900)] px-5 py-2.5 text-[13px] font-semibold text-white hover:bg-[var(--gray-700)] transition-colors"
-            >
-              Sign in
+            <Link href="/auth/login" className="flex h-9 items-center gap-2 rounded-full bg-[var(--gold)] px-4 text-xs font-bold uppercase tracking-wider text-black transition-all hover:bg-[var(--gold-dim)]">
+              <User className="h-3.5 w-3.5" /> Sign in
             </Link>
           )}
+          <Link href="/cart" className="relative flex h-9 w-9 items-center justify-center rounded-full text-zinc-400 hover:text-white hover:bg-white/5 transition-all" aria-label="Cart">
+            <ShoppingBag className="h-4 w-4" />
+            {totalItems > 0 && (
+              <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-[var(--gold)] text-[9px] font-bold text-black">{totalItems}</span>
+            )}
+          </Link>
         </div>
       </div>
 
-      {/* Mobile menu */}
-      {menuOpen && (
-        <div className="border-t border-[var(--gray-100)] bg-[var(--off-white)] lg:hidden animate-fade-in">
-          <div className="px-6 py-4">
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                const query = q.trim();
-                closeMobileMenu();
-                router.push(query ? `/products?q=${encodeURIComponent(query)}` : "/products");
-              }}
-            >
-              <div className="relative">
-                <svg className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--gray-400)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                  <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
-                </svg>
-                <input
-                  value={q}
-                  onChange={(e) => setQ(e.target.value)}
-                  placeholder="Search"
-                  className="w-full rounded-full border border-[var(--gray-200)] bg-transparent py-3 pl-10 pr-4 text-sm placeholder:text-[var(--gray-300)] focus:border-[var(--gray-900)] focus:outline-none"
-                />
-              </div>
-            </form>
-          </div>
-          <nav className="px-6 pb-8 space-y-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={closeMobileMenu}
-                className={`block rounded-xl px-4 py-3 text-sm font-semibold uppercase tracking-[0.1em] ${
-                  isActive(link.href)
-                    ? "bg-[var(--gray-900)] text-white"
-                    : "text-[var(--gray-600)] hover:bg-[var(--gray-100)]"
-                }`}
-              >
-                {link.label}
-              </Link>
+      {searchOpen && (
+        <div className="glass border-t border-white/5">
+          <form onSubmit={handleSearch} className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500" />
+              <input ref={searchInputRef} value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search products..." className="w-full rounded-full border border-white/10 bg-white/5 py-2.5 pl-10 pr-4 text-sm text-white placeholder:text-zinc-500 focus:border-[var(--gold)]/50 focus:outline-none transition-colors" />
+            </div>
+          </form>
+        </div>
+      )}
+
+      {mobileOpen && (
+        <div className="glass border-t border-white/5 lg:hidden">
+          <nav className="flex flex-col px-4 py-4 gap-1">
+            {navLinks.map((l) => (
+              <Link key={l.href} href={l.href} onClick={closeMenus} className={`rounded-lg px-4 py-3 text-sm font-medium transition-colors ${pathname === l.href ? "bg-white/5 text-white" : "text-zinc-400 hover:bg-white/5 hover:text-white"}`}>{l.label}</Link>
             ))}
-            {!user && (
-              <Link
-                href="/auth/login"
-                onClick={closeMobileMenu}
-                className="mt-2 block rounded-xl bg-[var(--gray-900)] px-4 py-3 text-center text-sm font-semibold text-white"
-              >
-                Sign in
-              </Link>
-            )}
+            {isAdmin && <Link href="/admin" onClick={closeMenus} className="rounded-lg px-4 py-3 text-sm font-medium text-zinc-400 hover:bg-white/5 hover:text-white transition-colors">Dashboard</Link>}
           </nav>
         </div>
       )}

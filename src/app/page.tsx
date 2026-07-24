@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { fetchAllProducts, type Product } from "../lib/products";
+import { SEED_VERSION } from "../lib/seedCatalog";
 import { ProductCard } from "../components/ProductCard";
 import { Skeleton } from "../components/Skeleton";
 import { ArrowRight } from "lucide-react";
@@ -45,10 +46,11 @@ export default function Home() {
     void (async () => {
       try {
         let all = await fetchAllProducts();
-        if (all.length === 0) {
-          await fetch("/api/seed", { method: "POST" });
-          all = await fetchAllProducts();
-        } else if (all.some((p) => !p.image)) {
+        const needsReseed =
+          all.length === 0 ||
+          all.some((p) => !p.image) ||
+          all.some((p: any) => p.seedVersion !== SEED_VERSION);
+        if (needsReseed) {
           await fetch("/api/seed?force=true", { method: "POST" });
           all = await fetchAllProducts();
         }

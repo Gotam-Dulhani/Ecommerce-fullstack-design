@@ -1,5 +1,7 @@
 import type { ProductInput } from "./products";
 
+export const SEED_VERSION = "2026-07-24-v3";
+
 export const SEED_PRODUCTS: ProductInput[] = [
   // ═══════════════════════════════════════════
   // ELECTRONICS (14 products)

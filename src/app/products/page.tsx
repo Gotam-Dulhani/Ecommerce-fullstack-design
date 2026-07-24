@@ -4,7 +4,7 @@ import { Suspense, useEffect, useMemo, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { createProduct, deleteAllProducts, fetchAllProducts, type Product } from "../../lib/products";
 import { ProductCard } from "../../components/ProductCard";
-import { SEED_PRODUCTS } from "../../lib/seedCatalog";
+import { SEED_PRODUCTS, SEED_VERSION } from "../../lib/seedCatalog";
 import { Search, X, ArrowLeft, SlidersHorizontal, ChevronDown } from "lucide-react";
 
 const CATEGORY_BANNERS: Record<string, { image: string; tagline: string }> = {
@@ -68,10 +68,11 @@ function ProductsContent() {
     void (async () => {
       try {
         let data = await fetchAllProducts();
-        if (data.length === 0) {
-          await fetch("/api/seed", { method: "POST" });
-          data = await fetchAllProducts();
-        } else if (data.some((p) => !p.image)) {
+        const needsReseed =
+          data.length === 0 ||
+          data.some((p) => !p.image) ||
+          data.some((p: any) => p.seedVersion !== SEED_VERSION);
+        if (needsReseed) {
           await fetch("/api/seed?force=true", { method: "POST" });
           data = await fetchAllProducts();
         }

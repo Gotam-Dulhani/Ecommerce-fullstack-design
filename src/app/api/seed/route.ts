@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { ref, set, get, push } from "firebase/database";
 import { getFirebaseDb } from "../../../lib/firebase";
-import { SEED_PRODUCTS } from "../../../lib/seedCatalog";
+import { SEED_PRODUCTS, SEED_VERSION } from "../../../lib/seedCatalog";
 
 export const dynamic = "force-dynamic";
 
@@ -16,28 +16,32 @@ export async function POST(request: Request) {
     const snapshot = await get(productsRef);
 
     if (snapshot.exists() && !force) {
-      const data = snapshot.val() as Record<string, { image?: string }>;
-      const missingImages = Object.values(data).some((p) => !p.image);
-      if (!missingImages) {
+      const data = snapshot.val() as Record<string, { image?: string; seedVersion?: string }>;
+      const values = Object.values(data);
+      const missingImages = values.some((p) => !p.image);
+      const hasCurrentVersion = values.every((p) => p.seedVersion === SEED_VERSION);
+
+      if (!missingImages && hasCurrentVersion) {
         return NextResponse.json({
           seeded: false,
-          message: "Products already exist. Skipping seed.",
-          count: snapshot.size ?? Object.keys(snapshot.val() ?? {}).length,
+          message: "Products already exist with current version. Skipping seed.",
+          count: snapshot.size ?? values.length,
         });
       }
     }
 
-    const seedData: Record<string, (typeof SEED_PRODUCTS)[number]> = {};
+    const seedData: Record<string, (typeof SEED_PRODUCTS)[number] & { seedVersion: string }> = {};
     for (const product of SEED_PRODUCTS) {
       const key = push(productsRef).key!;
-      seedData[key] = product;
+      seedData[key] = { ...product, seedVersion: SEED_VERSION };
     }
 
     await set(productsRef, seedData);
 
     return NextResponse.json({
       seeded: true,
-      message: `Successfully seeded ${SEED_PRODUCTS.length} products.`,
+      version: SEED_VERSION,
+      message: `Successfully seeded ${SEED_PRODUCTS.length} products (v${SEED_VERSION}).`,
       count: SEED_PRODUCTS.length,
     });
   } catch (error) {

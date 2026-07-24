@@ -10,6 +10,7 @@ import { ConfigBanner } from "../components/ConfigBanner";
 const inter = Inter({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -29,7 +30,7 @@ export default function RootLayout({
           <ConfigBanner />
           <CartProvider>
             <Navbar />
-            <main className="min-h-screen">{children}</main>
+            <main>{children}</main>
             <Footer />
           </CartProvider>
         </AuthProvider>

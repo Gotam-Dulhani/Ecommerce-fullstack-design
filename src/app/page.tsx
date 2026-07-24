@@ -44,26 +44,30 @@ export default function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-gray-950">
-        <div className="mx-auto max-w-7xl px-4 py-20 md:px-6 md:py-28">
-          <div className="max-w-2xl">
-            <p className="text-xs font-medium uppercase tracking-widest text-gray-400">New Season</p>
-            <h1 className="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Products built for everyday life.
+      <section className="relative bg-[var(--gray-900)] overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(217,119,6,0.08),transparent_60%)]" />
+        <div className="relative mx-auto max-w-[1400px] px-6 py-24 sm:py-32 lg:px-10 lg:py-40">
+          <div className="max-w-3xl">
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--amber)]">New collection</p>
+            <h1 className="mt-4 text-[clamp(2.5rem,6vw,5rem)] font-black leading-[0.95] tracking-[-0.04em] text-white">
+              Designed for
+              <br />
+              <span className="text-[var(--gray-400)]">everyday life.</span>
             </h1>
-            <p className="mt-4 max-w-lg text-base text-gray-400">
-              Curated essentials — quality materials, clean design, no compromises.
+            <p className="mt-6 max-w-md text-[16px] leading-relaxed text-[var(--gray-400)]">
+              Curated essentials — premium materials, clean design, no compromises. Everything you need, nothing you don&apos;t.
             </p>
-            <div className="mt-8 flex gap-3">
+            <div className="mt-10 flex flex-wrap gap-4">
               <Link
                 href="/products"
-                className="inline-flex items-center rounded-lg bg-white px-6 py-3 text-sm font-medium text-gray-950 hover:bg-gray-100 transition-colors"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-[13px] font-bold uppercase tracking-[0.1em] text-[var(--gray-900)] hover:bg-[var(--gray-100)] transition-colors"
               >
                 Shop now
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
               </Link>
               <Link
                 href="/products"
-                className="inline-flex items-center rounded-lg border border-gray-700 px-6 py-3 text-sm font-medium text-white hover:border-gray-500 transition-colors"
+                className="inline-flex items-center rounded-full border border-[var(--gray-700)] px-8 py-3.5 text-[13px] font-bold uppercase tracking-[0.1em] text-[var(--gray-300)] hover:border-[var(--gray-500)] hover:text-white transition-colors"
               >
                 View all
               </Link>
@@ -72,48 +76,34 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Trust strip */}
-      <section className="border-b border-gray-200 bg-white">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 md:grid-cols-4">
-          {[
-            { title: "Free Shipping", desc: "Orders over $150" },
-            { title: "Secure Payment", desc: "SSL encrypted" },
-            { title: "Easy Returns", desc: "30-day policy" },
-            { title: "24/7 Support", desc: "We're here to help" },
-          ].map((badge) => (
-            <div key={badge.title} className="border-r border-gray-100 px-6 py-4 last:border-r-0">
-              <p className="text-sm font-medium text-gray-900">{badge.title}</p>
-              <p className="text-xs text-gray-500">{badge.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Categories */}
       {categories.length > 0 && (
-        <section className="mx-auto max-w-7xl px-4 pt-16 sm:px-6">
+        <section className="mx-auto max-w-[1400px] px-6 pt-20 lg:px-10">
           <div className="flex items-end justify-between">
-            <h2 className="text-xl font-semibold tracking-tight text-gray-900">Categories</h2>
-            <Link href="/products" className="text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors">
-              View all
+            <div>
+              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--amber)]">Browse</p>
+              <h2 className="mt-2 text-[28px] font-bold tracking-[-0.02em] text-[var(--gray-900)]">Categories</h2>
+            </div>
+            <Link href="/products" className="text-[13px] font-semibold text-[var(--gray-400)] hover:text-[var(--gray-900)] transition-colors">
+              View all &rarr;
             </Link>
           </div>
-          <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
             {categories.map((c) => (
               <Link
                 key={c}
                 href={`/products?q=${encodeURIComponent(c)}`}
-                className="group relative overflow-hidden bg-gray-100 aspect-[4/3]"
+                className="group relative aspect-[3/4] overflow-hidden bg-[var(--gray-100)]"
               >
                 {CATEGORY_IMAGES[c] ? (
-                  <img src={CATEGORY_IMAGES[c]} alt={c} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <img src={CATEGORY_IMAGES[c]} alt={c} className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" />
                 ) : (
-                  <div className="h-full w-full bg-gray-200" />
+                  <div className="h-full w-full bg-[var(--gray-100)]" />
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                <div className="absolute bottom-0 left-0 p-4">
-                  <p className="text-sm font-medium text-white">{c}</p>
-                  <p className="text-xs text-white/70">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                <div className="absolute bottom-0 left-0 p-6">
+                  <p className="text-[17px] font-bold text-white">{c}</p>
+                  <p className="mt-1 text-[12px] font-medium text-white/60">
                     {allProducts.filter((p) => p.category === c).length} products
                   </p>
                 </div>
@@ -124,21 +114,20 @@ export default function Home() {
       )}
 
       {/* Featured */}
-      <section className="mx-auto max-w-7xl px-4 pt-16 sm:px-6">
+      <section className="mx-auto max-w-[1400px] px-6 pt-20 lg:px-10">
         <div className="flex items-end justify-between">
-          <h2 className="text-xl font-semibold tracking-tight text-gray-900">Featured</h2>
-          <Link href="/products" className="text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors">
-            View all
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--amber)]">Hand-picked</p>
+            <h2 className="mt-2 text-[28px] font-bold tracking-[-0.02em] text-[var(--gray-900)]">Featured</h2>
+          </div>
+          <Link href="/products" className="text-[13px] font-semibold text-[var(--gray-400)] hover:text-[var(--gray-900)] transition-colors">
+            View all &rarr;
           </Link>
         </div>
         {loading ? (
-          <div className="mt-6"><ProductGridSkeleton count={4} /></div>
-        ) : featured.length === 0 ? (
-          <div className="mt-6 rounded-lg border border-gray-200 bg-white p-8 text-center">
-            <p className="text-sm text-gray-500">No featured products yet.</p>
-          </div>
+          <div className="mt-8"><ProductGridSkeleton count={4} /></div>
         ) : (
-          <div className="mt-6 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
+          <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-3 lg:grid-cols-4">
             {featured.map((p) => (
               <ProductCard key={p.id} product={p} />
             ))}
@@ -146,18 +135,21 @@ export default function Home() {
         )}
       </section>
 
-      {/* All products preview */}
-      <section className="mx-auto max-w-7xl px-4 pt-16 pb-16 sm:px-6">
+      {/* All products */}
+      <section className="mx-auto max-w-[1400px] px-6 pt-20 pb-24 lg:px-10">
         <div className="flex items-end justify-between">
-          <h2 className="text-xl font-semibold tracking-tight text-gray-900">All Products</h2>
-          <Link href="/products" className="text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors">
-            View all
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--amber)]">Explore</p>
+            <h2 className="mt-2 text-[28px] font-bold tracking-[-0.02em] text-[var(--gray-900)]">All Products</h2>
+          </div>
+          <Link href="/products" className="text-[13px] font-semibold text-[var(--gray-400)] hover:text-[var(--gray-900)] transition-colors">
+            View all &rarr;
           </Link>
         </div>
         {loading ? (
-          <div className="mt-6"><ProductGridSkeleton count={8} /></div>
+          <div className="mt-8"><ProductGridSkeleton count={8} /></div>
         ) : (
-          <div className="mt-6 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
+          <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-3 lg:grid-cols-4">
             {allProducts.slice(0, 8).map((p) => (
               <ProductCard key={p.id} product={p} />
             ))}

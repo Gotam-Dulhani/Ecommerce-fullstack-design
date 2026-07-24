@@ -199,7 +199,7 @@ export default function AdminPage() {
               <input name="image" type="url" value={form.image} onChange={handleChange} placeholder="https://..." className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100" />
               {form.image && (
                 <div className="mt-2 h-20 w-20 overflow-hidden rounded-xl border border-slate-100 bg-slate-50">
-                  <img src={form.image} alt="Preview" className="h-full w-full object-cover" />
+                  <img src={form.image} alt="Preview" className="block" style={{ height: "100%", width: "100%", objectFit: "cover" }} />
                 </div>
               )}
             </div>
@@ -232,7 +232,7 @@ export default function AdminPage() {
             {products.map((product) => (
               <div key={product.id} className="flex items-center gap-4 px-5 py-3 transition hover:bg-slate-50/50">
                 <div className="hidden h-12 w-12 shrink-0 overflow-hidden rounded-xl bg-slate-50 sm:block">
-                  {product.image ? <img src={product.image} alt={product.name} className="h-full w-full object-cover" /> : <div className="h-full w-full bg-slate-100" />}
+                  {product.image ? <img src={product.image} alt={product.name} className="block" style={{ height: "100%", width: "100%", objectFit: "cover" }} /> : <div className="h-full w-full bg-slate-100" />}
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-sm font-semibold text-slate-900">{product.name}</p>

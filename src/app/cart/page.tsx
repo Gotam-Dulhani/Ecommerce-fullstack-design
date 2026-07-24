@@ -36,7 +36,7 @@ export default function CartPage() {
               <div key={item.product.id} className="flex gap-5 rounded-2xl border border-[var(--gray-100)] bg-white p-5 transition-colors hover:border-[var(--gray-200)]">
                 <Link href={`/products/${item.product.id}`} className="hidden h-24 w-24 shrink-0 overflow-hidden bg-[var(--gray-50)] sm:block">
                   {item.product.image ? (
-                    <img src={item.product.image} alt={item.product.name} className="h-full w-full object-cover" loading="lazy" />
+                    <img src={item.product.image} alt={item.product.name} className="block" style={{ height: "100%", width: "100%", objectFit: "cover" }} />
                   ) : <div className="h-full w-full bg-[var(--gray-100)]" />}
                 </Link>
                 <div className="flex flex-1 flex-col">

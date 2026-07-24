@@ -5,18 +5,26 @@ import { SEED_PRODUCTS } from "../../../lib/seedCatalog";
 
 export const dynamic = "force-dynamic";
 
-export async function POST() {
+export async function POST(request: Request) {
   try {
     const db = getFirebaseDb();
     const productsRef = ref(db, "products");
 
+    const url = new URL(request.url);
+    const force = url.searchParams.get("force") === "true";
+
     const snapshot = await get(productsRef);
-    if (snapshot.exists()) {
-      return NextResponse.json({
-        seeded: false,
-        message: "Products already exist. Skipping seed.",
-        count: snapshot.size ?? Object.keys(snapshot.val() ?? {}).length,
-      });
+
+    if (snapshot.exists() && !force) {
+      const data = snapshot.val() as Record<string, { image?: string }>;
+      const missingImages = Object.values(data).some((p) => !p.image);
+      if (!missingImages) {
+        return NextResponse.json({
+          seeded: false,
+          message: "Products already exist. Skipping seed.",
+          count: snapshot.size ?? Object.keys(snapshot.val() ?? {}).length,
+        });
+      }
     }
 
     const seedData: Record<string, (typeof SEED_PRODUCTS)[number]> = {};

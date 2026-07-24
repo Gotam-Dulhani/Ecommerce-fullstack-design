@@ -29,6 +29,9 @@ export default function Home() {
         if (all.length === 0) {
           await fetch("/api/seed", { method: "POST" });
           all = await fetchAllProducts();
+        } else if (all.some((p) => !p.image)) {
+          await fetch("/api/seed?force=true", { method: "POST" });
+          all = await fetchAllProducts();
         }
         setFeatured(all.filter((p) => p.featured).slice(0, 4));
         setAllProducts(all);
@@ -96,7 +99,7 @@ export default function Home() {
                 className="group relative aspect-[3/4] overflow-hidden bg-[var(--gray-100)]"
               >
                 {CATEGORY_IMAGES[c] ? (
-                  <img src={CATEGORY_IMAGES[c]} alt={c} className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" />
+                  <img src={CATEGORY_IMAGES[c]} alt={c} className="block transition-transform duration-700 ease-out group-hover:scale-110" style={{ height: "100%", width: "100%", objectFit: "cover" }} />
                 ) : (
                   <div className="h-full w-full bg-[var(--gray-100)]" />
                 )}

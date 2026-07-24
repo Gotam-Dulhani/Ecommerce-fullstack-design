@@ -135,7 +135,7 @@ export default function CheckoutPage() {
                 {items.map((it) => (
                   <div key={it.product.id} className="flex items-center gap-4 py-4">
                     <div className="h-14 w-14 shrink-0 overflow-hidden bg-[var(--gray-50)]">
-                      {it.product.image ? <img src={it.product.image} alt={it.product.name} className="h-full w-full object-cover" loading="lazy" /> : <div className="h-full w-full bg-[var(--gray-100)]" />}
+                      {it.product.image ? <img src={it.product.image} alt={it.product.name} className="block" style={{ height: "100%", width: "100%", objectFit: "cover" }} /> : <div className="h-full w-full bg-[var(--gray-100)]" />}
                     </div>
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-[14px] font-semibold text-[var(--gray-900)]">{it.product.name}</p>

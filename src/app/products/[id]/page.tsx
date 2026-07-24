@@ -72,10 +72,10 @@ export default function ProductDetailsPage() {
         <div className="overflow-hidden bg-[var(--gray-50)]">
           <div className="relative aspect-[4/5] w-full">
             {product.image ? (
-              <img src={product.image} alt={product.name} className="h-full w-full object-cover" />
+              <img src={product.image} alt={product.name} className="block h-full w-full object-cover" style={{ height: "100%", width: "100%", objectFit: "cover" }} />
             ) : (
-              <div className="flex h-full w-full items-center justify-center">
-                <span className="text-[13px] text-[var(--gray-300)]">No image</span>
+              <div className="flex h-full w-full items-center justify-center bg-[var(--gray-100)]">
+                <svg className="h-10 w-10 text-[var(--gray-300)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" /><circle cx="9" cy="9" r="2" /><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" /></svg>
               </div>
             )}
             {product.featured && (

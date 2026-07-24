@@ -23,6 +23,9 @@ function ProductsContent() {
         if (data.length === 0) {
           await fetch("/api/seed", { method: "POST" });
           data = await fetchAllProducts();
+        } else if (data.some((p) => !p.image)) {
+          await fetch("/api/seed?force=true", { method: "POST" });
+          data = await fetchAllProducts();
         }
         setProducts(data);
       } finally {

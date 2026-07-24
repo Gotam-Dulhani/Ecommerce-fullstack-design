@@ -96,36 +96,34 @@ function ProductsContent() {
   }, [products, search, category, sort]);
 
   return (
-    <div className="page-shell">
-      <div className="grid gap-6 md:grid-cols-[260px,1fr]">
+    <div className="mx-auto max-w-7xl px-4 py-6 md:px-6">
+      <div className="grid gap-6 md:grid-cols-[220px,1fr]">
         <CategoriesSidebar
           selected={category}
           onSelect={setCategory}
           categories={categoryCounts}
         />
         <div>
-          <div className="animate-fade-up rounded-3xl border border-slate-200/70 bg-white p-4 shadow-sm shadow-slate-900/5 md:p-5">
+          <div className="rounded-xl border border-gray-200 bg-white p-4">
             <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
               <div>
-                <h1 className="text-xl font-semibold tracking-tight text-slate-900 md:text-2xl">
-                  Shop products
-                </h1>
-                <p className="mt-1 text-sm text-slate-600">
-                  Search, filter and discover what you need.
+                <h1 className="text-lg font-semibold text-gray-900">Shop</h1>
+                <p className="text-sm text-gray-500">
+                  {filtered.length} product{filtered.length === 1 ? "" : "s"}
                 </p>
               </div>
               <div className="flex flex-col gap-2 md:flex-row md:items-center">
                 <input
                   type="text"
-                  placeholder="Search products..."
+                  placeholder="Search..."
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  className="w-full rounded-2xl border border-slate-200 bg-white/80 px-3 py-2 text-sm outline-none ring-0 placeholder:text-slate-400 shadow-sm shadow-slate-900/5 focus:border-indigo-400 md:w-72"
+                  className="w-full rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm outline-none focus:border-gray-400 md:w-56"
                 />
                 <select
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
-                  className="w-full rounded-2xl border border-slate-200 bg-white/80 px-3 py-2 text-sm outline-none shadow-sm shadow-slate-900/5 focus:border-indigo-400 md:w-44"
+                  className="w-full rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm outline-none focus:border-gray-400 md:w-40"
                 >
                   {categories.map((c) => (
                     <option key={c} value={c}>
@@ -135,57 +133,48 @@ function ProductsContent() {
                 </select>
                 <select
                   value={sort}
-                  onChange={(e) => setSort(e.target.value as "relevance" | "price_asc" | "price_desc" | "rating")}
-                  className="w-full rounded-2xl border border-slate-200 bg-white/80 px-3 py-2 text-sm outline-none shadow-sm shadow-slate-900/5 focus:border-indigo-400 md:w-44"
+                  onChange={(e) => setSort(e.target.value as typeof sort)}
+                  className="w-full rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm outline-none focus:border-gray-400 md:w-40"
                 >
-                  <option value="relevance">Sort: Relevance</option>
-                  <option value="rating">Sort: Rating</option>
-                  <option value="price_asc">Sort: Price (Low)</option>
-                  <option value="price_desc">Sort: Price (High)</option>
+                  <option value="relevance">Relevance</option>
+                  <option value="rating">Rating</option>
+                  <option value="price_asc">Price: Low to High</option>
+                  <option value="price_desc">Price: High to Low</option>
                 </select>
               </div>
             </div>
-            <div className="mt-3 flex items-center justify-between text-xs text-zinc-500">
-              <p>
-                Showing <span className="font-semibold text-slate-900">{filtered.length}</span>{" "}
-                product{filtered.length === 1 ? "" : "s"}
-              </p>
-              <p className="hidden md:block text-slate-500">
-                Smooth animations · Responsive layout
-              </p>
-            </div>
           </div>
 
-          <div className="mt-5">
-        {loading && (
-          <p className="text-sm text-slate-500">Loading products...</p>
-        )}
-        {!loading && products.length === 0 && (
-          <div className="animate-fade-up rounded-3xl border border-slate-200/70 bg-white/80 p-4 text-sm text-slate-600 shadow-sm shadow-slate-900/5 md:p-5">
-            <p className="font-semibold text-slate-900">No products in your database yet.</p>
-            <p className="mt-1 text-sm text-slate-600">
-              Click below to add a complete demo catalog (with images) to Firebase.
-            </p>
-            <button
-              type="button"
-              onClick={() => void handleSeed()}
-              disabled={seeding}
-              className="mt-3 inline-flex items-center justify-center rounded-2xl bg-slate-900 px-4 py-2 text-xs font-semibold text-white shadow-sm shadow-slate-900/20 hover:bg-slate-800 disabled:opacity-60 md:text-sm"
-            >
-              {seeding ? "Seeding demo products..." : "Seed demo products"}
-            </button>
-          </div>
-        )}
-        {!loading && products.length > 0 && filtered.length === 0 && (
-          <p className="text-sm text-slate-500">
-            No products found. Try adjusting your search or category.
-          </p>
-        )}
-        <div className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4 lg:grid-cols-4">
-          {filtered.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
+          <div className="mt-4">
+            {loading && (
+              <p className="text-sm text-gray-500">Loading products...</p>
+            )}
+            {!loading && products.length === 0 && (
+              <div className="rounded-xl border border-gray-200 bg-white p-6 text-center">
+                <p className="text-sm font-medium text-gray-900">No products yet.</p>
+                <p className="mt-1 text-sm text-gray-500">
+                  Click below to add demo products to Firebase.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => void handleSeed()}
+                  disabled={seeding}
+                  className="mt-4 rounded-lg bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-800 disabled:opacity-50"
+                >
+                  {seeding ? "Seeding..." : "Seed demo products"}
+                </button>
+              </div>
+            )}
+            {!loading && products.length > 0 && filtered.length === 0 && (
+              <p className="text-sm text-gray-500">
+                No products found. Try adjusting your search.
+              </p>
+            )}
+            <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4 lg:grid-cols-4">
+              {filtered.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -195,7 +184,7 @@ function ProductsContent() {
 
 export default function ProductsPage() {
   return (
-    <Suspense fallback={<div className="page-shell"><p className="text-sm text-slate-500">Loading products...</p></div>}>
+    <Suspense fallback={<div className="mx-auto max-w-7xl px-4 py-6 md:px-6"><p className="text-sm text-gray-500">Loading...</p></div>}>
       <ProductsContent />
     </Suspense>
   );

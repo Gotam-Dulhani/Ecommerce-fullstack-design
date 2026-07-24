@@ -1,30 +1,14 @@
 "use client";
 
-type Props = {
-  className?: string;
-};
-
-export function Skeleton({ className = "" }: Props) {
-  return (
-    <div
-      className={`animate-pulse rounded-xl bg-slate-200/70 ${className}`}
-      aria-hidden="true"
-    />
-  );
-}
-
 export function ProductCardSkeleton() {
   return (
-    <div className="overflow-hidden rounded-3xl border border-slate-200/80 bg-white">
-      <Skeleton className="aspect-[4/3] rounded-none" />
-      <div className="space-y-2 p-4">
-        <Skeleton className="h-4 w-3/4" />
-        <Skeleton className="h-3 w-1/3" />
-        <Skeleton className="h-3 w-1/2" />
-        <div className="flex items-center justify-between pt-1">
-          <Skeleton className="h-5 w-16" />
-          <Skeleton className="h-8 w-16 rounded-full" />
-        </div>
+    <div className="animate-pulse bg-white">
+      <div className="aspect-square w-full bg-gray-100" />
+      <div className="p-3 space-y-2">
+        <div className="h-3 w-16 bg-gray-100 rounded" />
+        <div className="h-4 w-full bg-gray-100 rounded" />
+        <div className="h-3 w-20 bg-gray-100 rounded" />
+        <div className="h-4 w-12 bg-gray-100 rounded" />
       </div>
     </div>
   );

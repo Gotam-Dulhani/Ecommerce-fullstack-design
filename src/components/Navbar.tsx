@@ -5,11 +5,13 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useCart } from "../context/CartContext";
+import { useWishlist } from "../context/WishlistContext";
 import { Search, ShoppingBag, User, Menu, X, LogOut, LayoutDashboard, Heart } from "lucide-react";
 
 export function Navbar() {
   const { user, isAdmin, signOutUser } = useAuth();
   const { totalItems } = useCart();
+  const { totalItems: wishlistItems } = useWishlist();
   const pathname = usePathname();
   const router = useRouter();
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -114,6 +116,9 @@ export function Navbar() {
           )}
           <Link href="/wishlist" className="relative flex h-9 w-9 items-center justify-center rounded-full text-zinc-400 hover:text-white hover:bg-white/5 transition-all" aria-label="Wishlist">
             <Heart className="h-4 w-4" />
+            {wishlistItems > 0 && (
+              <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[9px] font-bold text-white">{wishlistItems}</span>
+            )}
           </Link>
           <Link href="/cart" className="relative flex h-9 w-9 items-center justify-center rounded-full text-zinc-400 hover:text-white hover:bg-white/5 transition-all" aria-label="Cart">
             <ShoppingBag className="h-4 w-4" />

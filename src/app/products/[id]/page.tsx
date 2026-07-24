@@ -6,11 +6,12 @@ import { useEffect, useState } from "react";
 import { fetchAllProducts, fetchProductById, type Product } from "../../../lib/products";
 import { useCart } from "../../../context/CartContext";
 import { useAuth } from "../../../context/AuthContext";
+import { useWishlist } from "../../../context/WishlistContext";
 import { RatingStars } from "../../../components/RatingStars";
 import { ProductCard } from "../../../components/ProductCard";
 import { Skeleton } from "../../../components/Skeleton";
 import { formatPrice } from "../../../lib/utils";
-import { Minus, Plus, Truck, Shield, RotateCcw } from "lucide-react";
+import { Minus, Plus, Truck, Shield, RotateCcw, Heart } from "lucide-react";
 
 export default function ProductDetailsPage() {
   const params = useParams<{ id: string }>();
@@ -22,6 +23,7 @@ export default function ProductDetailsPage() {
   const [added, setAdded] = useState(false);
   const { addToCart } = useCart();
   const { user } = useAuth();
+  const { toggleWishlist, isInWishlist } = useWishlist();
 
   useEffect(() => {
     const id = params?.id;
@@ -56,6 +58,8 @@ export default function ProductDetailsPage() {
     setAdded(true);
     setTimeout(() => setAdded(false), 1500);
   };
+
+  const liked = isInWishlist(product.id);
 
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 pt-24">
@@ -144,6 +148,16 @@ export default function ProductDetailsPage() {
               className="flex-1 rounded-full bg-[var(--gold)] py-3.5 px-8 text-xs font-bold uppercase tracking-wider text-black hover:bg-[var(--gold-dim)] transition-colors sm:flex-none"
             >
               {added ? "Added to cart" : "Add to cart"}
+            </button>
+            <button type="button" onClick={() => toggleWishlist(product)}
+              className={`flex h-12 w-12 items-center justify-center rounded-full border transition-all ${
+                liked
+                  ? "border-red-500/30 bg-red-500/10 text-red-500"
+                  : "border-white/10 bg-white/5 text-zinc-400 hover:text-white hover:border-white/20"
+              }`}
+              aria-label={liked ? "Remove from wishlist" : "Add to wishlist"}
+            >
+              <Heart className={`h-5 w-5 ${liked ? "fill-red-500" : ""}`} />
             </button>
           </div>
 

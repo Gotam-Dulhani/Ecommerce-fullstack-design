@@ -5,8 +5,9 @@ import { useState } from "react";
 import type { Product } from "../lib/products";
 import { useCart } from "../context/CartContext";
 import { useAuth } from "../context/AuthContext";
+import { useWishlist } from "../context/WishlistContext";
 import { useRouter } from "next/navigation";
-import { Plus, Check } from "lucide-react";
+import { Plus, Check, Heart } from "lucide-react";
 import { formatPrice } from "../lib/utils";
 
 type Props = { product: Product };
@@ -14,8 +15,10 @@ type Props = { product: Product };
 export function ProductCard({ product }: Props) {
   const { addToCart } = useCart();
   const { user } = useAuth();
+  const { toggleWishlist, isInWishlist } = useWishlist();
   const router = useRouter();
   const [added, setAdded] = useState(false);
+  const liked = isInWishlist(product.id);
 
   function handleAdd(e: React.MouseEvent) {
     e.preventDefault();
@@ -24,6 +27,12 @@ export function ProductCard({ product }: Props) {
     addToCart(product, 1);
     setAdded(true);
     setTimeout(() => setAdded(false), 1500);
+  }
+
+  function handleWishlist(e: React.MouseEvent) {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleWishlist(product);
   }
 
   return (
@@ -41,6 +50,20 @@ export function ProductCard({ product }: Props) {
             <span className="text-xs text-zinc-600">No image</span>
           </div>
         )}
+
+        {/* Heart toggle */}
+        <button
+          type="button"
+          onClick={handleWishlist}
+          className={`absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full backdrop-blur-sm transition-all ${
+            liked
+              ? "bg-red-500/20 text-red-500"
+              : "bg-black/40 text-zinc-400 hover:text-white hover:bg-black/60"
+          }`}
+          aria-label={liked ? "Remove from wishlist" : "Add to wishlist"}
+        >
+          <Heart className={`h-4 w-4 transition-all ${liked ? "fill-red-500" : ""}`} />
+        </button>
 
         {product.featured && (
           <span className="absolute left-3 top-3 rounded-full bg-[var(--gold)] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-black">

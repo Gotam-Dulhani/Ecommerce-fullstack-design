@@ -37,7 +37,7 @@ export default function ContactPage() {
             </div>
             <div>
               <h3 className="text-sm font-bold text-white">Email</h3>
-              <p className="mt-1 text-sm text-zinc-400">help@shopnest.store</p>
+              <p className="mt-1 text-sm text-zinc-400">ghotamdulhani123@gmail.com</p>
             </div>
           </div>
           <div className="flex items-start gap-4">
@@ -46,7 +46,7 @@ export default function ContactPage() {
             </div>
             <div>
               <h3 className="text-sm font-bold text-white">Phone</h3>
-              <p className="mt-1 text-sm text-zinc-400">+92 300 1234567</p>
+              <p className="mt-1 text-sm text-zinc-400">+92 321 1792687</p>
             </div>
           </div>
           <div className="flex items-start gap-4">
@@ -55,7 +55,7 @@ export default function ContactPage() {
             </div>
             <div>
               <h3 className="text-sm font-bold text-white">Address</h3>
-              <p className="mt-1 text-sm text-zinc-400">Lahore, Punjab, Pakistan</p>
+              <p className="mt-1 text-sm text-zinc-400">Karachi, Sindh, Pakistan</p>
             </div>
           </div>
         </div>

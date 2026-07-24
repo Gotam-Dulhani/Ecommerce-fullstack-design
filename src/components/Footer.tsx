@@ -33,9 +33,9 @@ export function Footer() {
           <div className="md:col-span-3">
             <p className="text-xs font-semibold uppercase tracking-widest text-zinc-400">Support</p>
             <div className="mt-4 space-y-3 text-sm text-zinc-500">
-              <span className="block">help@shopnest.store</span>
-              <span className="block">Mon–Fri, 9am–6pm</span>
-              <span className="block">Lahore, Pakistan</span>
+              <span className="block">ghotamdulhani123@gmail.com</span>
+              <span className="block">+92 321 1792687</span>
+              <span className="block">Karachi, Sindh, Pakistan</span>
             </div>
           </div>
         </div>

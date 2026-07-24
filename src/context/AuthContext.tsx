@@ -4,6 +4,7 @@ import {
   createContext,
   useContext,
   useEffect,
+  useMemo,
   useState,
   type ReactNode,
 } from "react";
@@ -17,11 +18,12 @@ import {
   updateProfile,
   type User,
 } from "firebase/auth";
-import { getFirebaseAuth } from "../lib/firebase";
+import { getFirebaseAuth, isFirebaseConfigured } from "../lib/firebase";
 
 type AuthContextValue = {
   user: User | null;
   loading: boolean;
+  configError: string | null;
   signIn: (
     email: string,
     password: string,
@@ -39,17 +41,31 @@ type AuthContextValue = {
 
 const AuthContext = createContext<AuthContextValue | undefined>(undefined);
 
+function getConfigError(): string | null {
+  if (!isFirebaseConfigured()) {
+    return "Firebase is not configured. Add your Firebase environment variables to Vercel Settings → Environment Variables, then redeploy.";
+  }
+  try {
+    getFirebaseAuth();
+    return null;
+  } catch (err) {
+    return err instanceof Error ? err.message : "Failed to initialize Firebase.";
+  }
+}
+
 export function AuthProvider({ children }: { children: ReactNode }) {
+  const configError = useMemo(() => getConfigError(), []);
   const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(!configError);
 
   useEffect(() => {
+    if (configError) return;
     const unsubscribe = onAuthStateChanged(getFirebaseAuth(), (firebaseUser) => {
       setUser(firebaseUser);
       setLoading(false);
     });
     return () => unsubscribe();
-  }, []);
+  }, [configError]);
 
   const signIn = async (
     email: string,
@@ -133,6 +149,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const value: AuthContextValue = {
     user,
     loading,
+    configError,
     signIn,
     signUp,
     resendEmailVerification,

@@ -5,6 +5,7 @@ import { AuthProvider } from "../context/AuthContext";
 import { CartProvider } from "../context/CartContext";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
+import { ConfigBanner } from "../components/ConfigBanner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,6 +33,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <AuthProvider>
+          <ConfigBanner />
           <CartProvider>
             <Navbar />
             <main className="min-h-screen pb-14">

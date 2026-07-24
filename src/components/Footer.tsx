@@ -19,14 +19,15 @@ export function Footer() {
               <Link href="/products" className="block hover:text-white transition-colors">All Products</Link>
               <Link href="/products" className="block hover:text-white transition-colors">New Arrivals</Link>
               <Link href="/products" className="block hover:text-white transition-colors">Best Sellers</Link>
+              <Link href="/gift-cards" className="block hover:text-white transition-colors">Gift Cards</Link>
             </div>
           </div>
           <div className="md:col-span-2">
-            <p className="text-xs font-semibold uppercase tracking-widest text-zinc-400">Account</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-zinc-400">Company</p>
             <div className="mt-4 space-y-3 text-sm text-zinc-500">
-              <Link href="/auth/login" className="block hover:text-white transition-colors">Sign in</Link>
-              <Link href="/auth/signup" className="block hover:text-white transition-colors">Create account</Link>
-              <Link href="/cart" className="block hover:text-white transition-colors">Cart</Link>
+              <Link href="/about" className="block hover:text-white transition-colors">About us</Link>
+              <Link href="/contact" className="block hover:text-white transition-colors">Contact</Link>
+              <Link href="/wishlist" className="block hover:text-white transition-colors">Wishlist</Link>
             </div>
           </div>
           <div className="md:col-span-3">
@@ -34,6 +35,7 @@ export function Footer() {
             <div className="mt-4 space-y-3 text-sm text-zinc-500">
               <span className="block">help@shopnest.store</span>
               <span className="block">Mon–Fri, 9am–6pm</span>
+              <span className="block">Lahore, Pakistan</span>
             </div>
           </div>
         </div>

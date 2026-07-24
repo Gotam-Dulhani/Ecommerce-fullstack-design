@@ -6,6 +6,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { useCart } from "../../context/CartContext";
 import { createOrder, type ShippingAddress } from "../../lib/orders";
+import { formatPrice } from "../../lib/utils";
 
 export default function CheckoutPage() {
   const router = useRouter();
@@ -17,7 +18,7 @@ export default function CheckoutPage() {
   const [address, setAddress] = useState<ShippingAddress>({
     fullName: "", phone: "", addressLine1: "", addressLine2: "", city: "", state: "", postalCode: "", country: "Pakistan",
   });
-  const shipping = useMemo(() => (totalPrice > 150 ? 0 : totalItems > 0 ? 9.99 : 0), [totalItems, totalPrice]);
+  const shipping = useMemo(() => (totalPrice > 42000 ? 0 : totalItems > 0 ? 2799 : 0), [totalItems, totalPrice]);
   const grandTotal = totalPrice + shipping;
 
   useEffect(() => {
@@ -141,14 +142,14 @@ export default function CheckoutPage() {
                       <p className="truncate text-sm font-semibold text-white">{it.product.name}</p>
                       <p className="text-xs text-zinc-500">Qty: {it.quantity}</p>
                     </div>
-                    <p className="text-sm font-bold text-[var(--gold)]">${(it.quantity * it.product.price).toFixed(2)}</p>
+                    <p className="text-sm font-bold text-[var(--gold)]">{formatPrice(it.quantity * it.product.price)}</p>
                   </div>
                 ))}
               </div>
               {error && <p className="rounded-lg bg-red-500/10 px-4 py-3 text-xs text-red-500">{error}</p>}
               <button type="button" onClick={placeOrder} disabled={placing}
                 className="w-full rounded-full bg-[var(--gold)] py-3.5 text-xs font-bold uppercase tracking-wider text-black hover:bg-[var(--gold-dim)] transition-colors disabled:opacity-50">
-                {placing ? "Placing order..." : `Place order — $${grandTotal.toFixed(2)}`}
+                {placing ? "Placing order..." : `Place order — ${formatPrice(grandTotal)}`}
               </button>
             </div>
           )}
@@ -159,11 +160,11 @@ export default function CheckoutPage() {
           <div className="rounded-xl border border-white/5 bg-[var(--surface)] p-6 space-y-4">
             <h2 className="text-xs font-bold uppercase tracking-wider text-zinc-400">Summary</h2>
             <div className="space-y-3 text-sm">
-              <div className="flex justify-between text-zinc-400"><span>Subtotal</span><span className="font-semibold text-white">${totalPrice.toFixed(2)}</span></div>
-              <div className="flex justify-between text-zinc-400"><span>Shipping</span><span className={`font-semibold ${shipping === 0 ? "text-emerald-500" : "text-white"}`}>{shipping === 0 ? "Free" : `$${shipping.toFixed(2)}`}</span></div>
+              <div className="flex justify-between text-zinc-400"><span>Subtotal</span><span className="font-semibold text-white">{formatPrice(totalPrice)}</span></div>
+              <div className="flex justify-between text-zinc-400"><span>Shipping</span><span className={`font-semibold ${shipping === 0 ? "text-emerald-500" : "text-white"}`}>{shipping === 0 ? "Free" : formatPrice(shipping)}</span></div>
             </div>
             <div className="border-t border-dashed border-white/10 pt-4">
-              <div className="flex justify-between text-base font-bold text-white"><span>Total</span><span>${grandTotal.toFixed(2)}</span></div>
+              <div className="flex justify-between text-base font-bold text-white"><span>Total</span><span>{formatPrice(grandTotal)}</span></div>
             </div>
             <Link href="/cart" className="block text-center text-xs font-semibold text-zinc-500 hover:text-white transition-colors">Back to cart</Link>
           </div>

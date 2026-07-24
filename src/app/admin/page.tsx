@@ -12,6 +12,7 @@ import {
 import { useAuth } from "../../context/AuthContext";
 import { SEED_PRODUCTS } from "../../lib/seedCatalog";
 import { Lock, RefreshCw, Trash2, Pencil } from "lucide-react";
+import { formatPrice } from "../../lib/utils";
 
 const emptyForm: ProductInput = {
   name: "",
@@ -237,7 +238,7 @@ export default function AdminPage() {
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-sm font-semibold text-white">{product.name}</p>
                   <p className="text-xs text-zinc-500">
-                    {product.category} · ${product.price.toFixed(2)} · Stock: {product.stock}
+                    {product.category} · {formatPrice(product.price)} · Stock: {product.stock}
                     {product.featured && <span className="ml-1.5 inline-flex items-center rounded-full bg-[var(--gold)]/10 px-2 py-0.5 text-[10px] font-bold text-[var(--gold)]">Featured</span>}
                   </p>
                 </div>

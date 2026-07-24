@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import { useCart } from "../../context/CartContext";
+import { formatPrice } from "../../lib/utils";
 import { Minus, Plus, ShoppingBag } from "lucide-react";
 
 export default function CartPage() {
   const { items, totalItems, totalPrice, updateQuantity, removeFromCart } = useCart();
-  const shipping = totalPrice >= 150 ? 0 : 9.99;
+  const shipping = totalPrice >= 42000 ? 0 : 2799;
   const total = totalPrice + shipping;
 
   return (
@@ -45,7 +46,7 @@ export default function CartPage() {
                       </Link>
                       <p className="mt-0.5 text-xs text-zinc-500">{item.product.category}</p>
                     </div>
-                    <p className="text-sm font-bold text-[var(--gold)]">${(item.product.price * item.quantity).toFixed(2)}</p>
+                    <p className="text-sm font-bold text-[var(--gold)]">{formatPrice(item.product.price * item.quantity)}</p>
                   </div>
                   <div className="mt-auto flex items-center gap-4 pt-3">
                     <div className="inline-flex items-center rounded-full border border-white/10 bg-white/5">
@@ -76,24 +77,24 @@ export default function CartPage() {
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between text-zinc-400">
                   <span>Subtotal ({totalItems} items)</span>
-                  <span className="font-semibold text-white">${totalPrice.toFixed(2)}</span>
+                  <span className="font-semibold text-white">{formatPrice(totalPrice)}</span>
                 </div>
                 <div className="flex justify-between text-zinc-400">
                   <span>Shipping</span>
                   <span className={`font-semibold ${shipping === 0 ? "text-emerald-500" : "text-white"}`}>
-                    {shipping === 0 ? "Free" : `$${shipping.toFixed(2)}`}
+                    {shipping === 0 ? "Free" : formatPrice(shipping)}
                   </span>
                 </div>
               </div>
               {shipping > 0 && (
                 <p className="rounded-lg bg-emerald-500/10 px-4 py-2.5 text-xs font-medium text-emerald-500">
-                  Add ${(150 - totalPrice).toFixed(2)} more for free shipping
+                  Add {formatPrice(42000 - totalPrice)} more for free shipping
                 </p>
               )}
               <div className="border-t border-dashed border-white/10 pt-4">
                 <div className="flex justify-between text-base font-bold text-white">
                   <span>Total</span>
-                  <span>${total.toFixed(2)}</span>
+                  <span>{formatPrice(total)}</span>
                 </div>
               </div>
               <Link href="/checkout" className="block w-full rounded-full bg-[var(--gold)] py-3.5 text-center text-xs font-bold uppercase tracking-wider text-black hover:bg-[var(--gold-dim)] transition-colors">

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "../context/AuthContext";
 import { CartProvider } from "../context/CartContext";
+import { WishlistProvider } from "../context/WishlistContext";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { ConfigBanner } from "../components/ConfigBanner";
@@ -29,9 +30,11 @@ export default function RootLayout({
         <AuthProvider>
           <ConfigBanner />
           <CartProvider>
-            <Navbar />
-            <main className="min-h-screen">{children}</main>
-            <Footer />
+            <WishlistProvider>
+              <Navbar />
+              <main className="min-h-screen">{children}</main>
+              <Footer />
+            </WishlistProvider>
           </CartProvider>
         </AuthProvider>
       </body>

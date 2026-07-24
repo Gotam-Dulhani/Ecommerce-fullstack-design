@@ -5,7 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useCart } from "../context/CartContext";
-import { Search, ShoppingBag, User, Menu, X, LogOut, LayoutDashboard } from "lucide-react";
+import { Search, ShoppingBag, User, Menu, X, LogOut, LayoutDashboard, Heart } from "lucide-react";
 
 export function Navbar() {
   const { user, isAdmin, signOutUser } = useAuth();
@@ -52,6 +52,8 @@ export function Navbar() {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/products", label: "Shop" },
+    { href: "/about", label: "About" },
+    { href: "/contact", label: "Contact" },
   ];
 
   return (
@@ -110,6 +112,9 @@ export function Navbar() {
               <User className="h-3.5 w-3.5" /> Sign in
             </Link>
           )}
+          <Link href="/wishlist" className="relative flex h-9 w-9 items-center justify-center rounded-full text-zinc-400 hover:text-white hover:bg-white/5 transition-all" aria-label="Wishlist">
+            <Heart className="h-4 w-4" />
+          </Link>
           <Link href="/cart" className="relative flex h-9 w-9 items-center justify-center rounded-full text-zinc-400 hover:text-white hover:bg-white/5 transition-all" aria-label="Cart">
             <ShoppingBag className="h-4 w-4" />
             {totalItems > 0 && (

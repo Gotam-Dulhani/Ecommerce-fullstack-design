@@ -9,6 +9,7 @@ import { useAuth } from "../../../context/AuthContext";
 import { RatingStars } from "../../../components/RatingStars";
 import { ProductCard } from "../../../components/ProductCard";
 import { Skeleton } from "../../../components/Skeleton";
+import { formatPrice } from "../../../lib/utils";
 import { Minus, Plus, Truck, Shield, RotateCcw } from "lucide-react";
 
 export default function ProductDetailsPage() {
@@ -111,7 +112,7 @@ export default function ProductDetailsPage() {
           </p>
 
           <div className="flex items-baseline gap-4">
-            <span className="text-3xl font-bold tracking-tight text-[var(--gold)]">${product.price.toFixed(2)}</span>
+            <span className="text-3xl font-bold tracking-tight text-[var(--gold)]">{formatPrice(product.price)}</span>
             {typeof product.stock === "number" && product.stock > 0 && (
               <span className="rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-semibold text-emerald-500">
                 In stock ({product.stock})
@@ -152,7 +153,7 @@ export default function ProductDetailsPage() {
               <Truck className="h-5 w-5 text-[var(--gold)]" />
               <div>
                 <p className="text-xs font-semibold text-white">Free shipping</p>
-                <p className="text-[10px] text-zinc-500">Over $150</p>
+                <p className="text-[10px] text-zinc-500">Over Rs. 42,000</p>
               </div>
             </div>
             <div className="flex flex-col items-center gap-2 text-center">

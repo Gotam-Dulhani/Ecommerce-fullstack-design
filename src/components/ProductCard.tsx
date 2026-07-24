@@ -7,6 +7,7 @@ import { useCart } from "../context/CartContext";
 import { useAuth } from "../context/AuthContext";
 import { useRouter } from "next/navigation";
 import { Plus, Check } from "lucide-react";
+import { formatPrice } from "../lib/utils";
 
 type Props = { product: Product };
 
@@ -67,7 +68,7 @@ export function ProductCard({ product }: Props) {
           {product.name}
         </h3>
         <p className="text-sm font-bold text-[var(--gold)]">
-          ${product.price.toFixed(2)}
+          {formatPrice(product.price)}
         </p>
       </div>
     </Link>

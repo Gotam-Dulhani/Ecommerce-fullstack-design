@@ -1,6 +1,6 @@
 import type { ProductInput } from "./products";
 
-export const SEED_VERSION = "2026-07-24-v4";
+export const SEED_VERSION = "2026-07-24-v5";
 
 export const SEED_PRODUCTS: ProductInput[] = [
   // ═══════════════════════════════════════════
@@ -8,7 +8,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   // ═══════════════════════════════════════════
   {
     name: "Noise-Cancelling Headphones",
-    price: 55999,
+    price: 8999,
     image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80",
     description: "Immersive sound with active noise cancelling and all-day comfort for work or travel.",
     category: "Electronics",
@@ -19,7 +19,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Wireless Charging Pad",
-    price: 8399,
+    price: 1999,
     image: "https://images.unsplash.com/photo-1615526675159-e248c3021d3f?auto=format&fit=crop&w=600&q=80",
     description: "Fast wireless charging with a slim profile. Works with most Qi-enabled devices.",
     category: "Electronics",
@@ -29,7 +29,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Portable Bluetooth Speaker",
-    price: 16799,
+    price: 3999,
     image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=600&q=80",
     description: "Big sound in a compact body. Water-resistant and perfect for weekends.",
     category: "Electronics",
@@ -40,7 +40,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Ergonomic Wireless Mouse",
-    price: 9799,
+    price: 2499,
     image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=600&q=80",
     description: "Comfortable grip and reliable connection for smooth, all-day productivity.",
     category: "Electronics",
@@ -50,7 +50,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Mechanical Keyboard",
-    price: 36099,
+    price: 6999,
     image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=600&q=80",
     description: "Tactile mechanical switches with RGB backlighting for a premium typing experience.",
     category: "Electronics",
@@ -61,7 +61,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "USB-C Hub Adapter 7-in-1",
-    price: 12599,
+    price: 2999,
     image: "https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=600&q=80",
     description: "HDMI, USB 3.0, SD card reader, and 100W power delivery in one compact hub.",
     category: "Electronics",
@@ -71,7 +71,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Smart Fitness Watch",
-    price: 41799,
+    price: 7999,
     image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80",
     description: "Track steps, heart rate, sleep, and notifications with a sleek AMOLED display.",
     category: "Electronics",
@@ -82,7 +82,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Webcam HD 1080p",
-    price: 19399,
+    price: 4499,
     image: "https://images.unsplash.com/photo-1587826080692-f439cd0b70da?auto=format&fit=crop&w=600&q=80",
     description: "Full HD streaming with auto-focus, built-in mic, and wide-angle lens.",
     category: "Electronics",
@@ -92,7 +92,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "4K Action Camera",
-    price: 50199,
+    price: 8499,
     image: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=600&q=80",
     description: "Ultra HD 4K recording with waterproof housing and image stabilization.",
     category: "Electronics",
@@ -102,7 +102,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Portable Power Bank 20000mAh",
-    price: 11199,
+    price: 2799,
     image: "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?auto=format&fit=crop&w=600&q=80",
     description: "High-capacity fast charging with dual USB ports for all your devices on the go.",
     category: "Electronics",
@@ -112,7 +112,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Smart LED Desk Lamp",
-    price: 15399,
+    price: 3499,
     image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=600&q=80",
     description: "Adjustable color temperature and brightness with wireless phone charging base.",
     category: "Electronics",
@@ -122,7 +122,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Wireless Ergonomic Keyboard",
-    price: 22399,
+    price: 4999,
     image: "https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=600&q=80",
     description: "Split ergonomic layout with quiet keys and Bluetooth connectivity for healthy typing.",
     category: "Electronics",
@@ -132,7 +132,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "True Wireless Earbuds Pro",
-    price: 22399,
+    price: 4999,
     image: "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?auto=format&fit=crop&w=600&q=80",
     description: "Crystal-clear audio with deep bass, IPX5 water resistance, and 30hr battery life.",
     category: "Electronics",
@@ -142,7 +142,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Smartphone Flagship 256GB",
-    price: 111999,
+    price: 8999,
     image: "https://images.unsplash.com/photo-1617802690992-15d93263d3a9?auto=format&fit=crop&w=600&q=80",
     description: "Edge-to-edge AMOLED display with 50MP triple camera and all-day battery life.",
     category: "Electronics",
@@ -156,7 +156,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   // ═══════════════════════════════════════════
   {
     name: "Oversized Cotton Hoodie",
-    price: 15199,
+    price: 1999,
     image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=600&q=80",
     description: "Soft fleece-lined hoodie with an oversized fit for a cozy, modern streetwear vibe.",
     category: "Clothing",
@@ -166,7 +166,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Slim Fit Denim Jacket",
-    price: 27799,
+    price: 3199,
     image: "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=600&q=80",
     description: "A versatile denim jacket with a modern cut, perfect for layering year-round.",
     category: "Clothing",
@@ -177,7 +177,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Linen Blend Shirt",
-    price: 12699,
+    price: 1799,
     image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=600&q=80",
     description: "Breathable linen blend with a relaxed fit — perfect for warm weather.",
     category: "Clothing",
@@ -187,7 +187,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Everyday Chinos",
-    price: 14599,
+    price: 1899,
     image: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=600&q=80",
     description: "Comfort stretch chinos with a clean taper — smart enough for work, easy for weekends.",
     category: "Clothing",
@@ -197,7 +197,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Graphic Print T-Shirt",
-    price: 8399,
+    price: 999,
     image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80",
     description: "Premium cotton tee with a bold graphic print. Soft, breathable, and effortless.",
     category: "Clothing",
@@ -207,7 +207,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Fleece Zip-Up Jacket",
-    price: 19399,
+    price: 2499,
     image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=600&q=80",
     description: "Warm microfleece with full zip, stand collar, and zippered hand pockets.",
     category: "Clothing",
@@ -217,7 +217,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Cotton Polo Shirt",
-    price: 10699,
+    price: 1499,
     image: "https://images.unsplash.com/photo-1607345366928-199ea26cfe3e?auto=format&fit=crop&w=600&q=80",
     description: "Classic pique polo with a tailored fit. Versatile enough for casual or smart wear.",
     category: "Clothing",
@@ -227,7 +227,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Cargo Jogger Pants",
-    price: 16299,
+    price: 2199,
     image: "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?auto=format&fit=crop&w=600&q=80",
     description: "Relaxed-fit joggers with cargo pockets and elastic cuffs for everyday comfort.",
     category: "Clothing",
@@ -237,7 +237,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Waterproof Rain Jacket",
-    price: 33399,
+    price: 3499,
     image: "https://images.unsplash.com/photo-1544022613-e87ca75a784a?auto=format&fit=crop&w=600&q=80",
     description: "Lightweight and fully seam-sealed with a packable design for unpredictable weather.",
     category: "Clothing",
@@ -248,7 +248,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Relaxed Fit Cargo Shorts",
-    price: 11799,
+    price: 1599,
     image: "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=600&q=80",
     description: "Durable cotton cargo shorts with multiple pockets. Perfect for summer adventures.",
     category: "Clothing",
@@ -258,7 +258,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Striped Long Sleeve Tee",
-    price: 9799,
+    price: 1399,
     image: "https://images.unsplash.com/photo-1622445275463-afa2ab738c34?auto=format&fit=crop&w=600&q=80",
     description: "Classic Breton stripe design in soft cotton jersey. A timeless wardrobe essential.",
     category: "Clothing",
@@ -268,7 +268,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Heavyweight Overshirt",
-    price: 25199,
+    price: 2899,
     image: "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?auto=format&fit=crop&w=600&q=80",
     description: "Sturdy cotton twill overshirt with chest pockets. Layer it over a tee or under a coat.",
     category: "Clothing",
@@ -278,7 +278,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Merino Wool Sweater",
-    price: 23899,
+    price: 2699,
     image: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=600&q=80",
     description: "Lightweight merino wool with a soft hand-feel. Warm without the bulk.",
     category: "Clothing",
@@ -289,7 +289,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Slim Fit Dress Shirt",
-    price: 18199,
+    price: 2399,
     image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=600&q=80",
     description: "Non-iron cotton with a modern slim cut. The go-to shirt for offices and dinners.",
     category: "Clothing",
@@ -303,7 +303,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   // ═══════════════════════════════════════════
   {
     name: "Ceramic Coffee Mug Set (2pcs)",
-    price: 6199,
+    price: 799,
     image: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=600&q=80",
     description: "Two minimalist ceramic mugs with a comfortable handle and smooth glazed finish.",
     category: "Home",
@@ -313,7 +313,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Modern Throw Pillow",
-    price: 5599,
+    price: 699,
     image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=600&q=80",
     description: "Textured pillow cover with a modern pattern to refresh your living space.",
     category: "Home",
@@ -323,7 +323,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Kitchen Knife — Chef 8\"",
-    price: 19399,
+    price: 3499,
     image: "https://images.unsplash.com/photo-1593618998160-e34014e67546?auto=format&fit=crop&w=600&q=80",
     description: "Sharp, balanced chef's knife with a comfortable handle for daily prep.",
     category: "Home",
@@ -333,7 +333,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Indoor Plant Pot Set",
-    price: 8399,
+    price: 1499,
     image: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=600&q=80",
     description: "Set of 3 ceramic pots in matte finishes with drainage holes and saucers.",
     category: "Home",
@@ -343,7 +343,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Stoneware Dinner Plate Set",
-    price: 13499,
+    price: 2599,
     image: "https://images.unsplash.com/photo-1603199506016-b9a594b593c0?auto=format&fit=crop&w=600&q=80",
     description: "Set of 4 handcrafted stoneware plates with reactive glaze. Dishwasher safe.",
     category: "Home",
@@ -353,7 +353,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Woven Throw Blanket",
-    price: 12599,
+    price: 2299,
     image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=80",
     description: "Soft cotton weave with tasseled edges. Perfect for the couch or bed.",
     category: "Home",
@@ -364,7 +364,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Wall Clock — Minimalist",
-    price: 9799,
+    price: 1899,
     image: "https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?auto=format&fit=crop&w=600&q=80",
     description: "Silent sweep movement with clean dial design. No ticking, no distractions.",
     category: "Home",
@@ -374,7 +374,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Glass Carafe with Cups",
-    price: 10099,
+    price: 1999,
     image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=600&q=80",
     description: "Elegant borosilicate glass carafe with 4 matching tumblers. Great for water or juice.",
     category: "Home",
@@ -384,7 +384,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Scented Candle — Lavender",
-    price: 6999,
+    price: 999,
     image: "https://images.unsplash.com/photo-1602028915047-37269d1a73f7?auto=format&fit=crop&w=600&q=80",
     description: "Hand-poured soy wax candle with dried lavender buds. Burns for 40+ hours.",
     category: "Home",
@@ -395,7 +395,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Cotton Bath Towel Set",
-    price: 15499,
+    price: 2999,
     image: "https://images.unsplash.com/photo-1616627561839-074385245ff6?auto=format&fit=crop&w=600&q=80",
     description: "Set of 2 luxury 700 GSM Turkish cotton towels. Ultra-absorbent and quick-drying.",
     category: "Home",
@@ -405,7 +405,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Wooden Cutting Board",
-    price: 8999,
+    price: 1699,
     image: "https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=600&q=80",
     description: "End-grain acacia wood with juice groove. Built to last and gentle on knives.",
     category: "Home",
@@ -415,7 +415,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Floating Wall Shelf Set",
-    price: 7899,
+    price: 1299,
     image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80",
     description: "Set of 3 solid acacia wood shelves with hidden brackets. Rustic charm meets clean design.",
     category: "Home",
@@ -425,7 +425,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Digital Kitchen Scale",
-    price: 4499,
+    price: 599,
     image: "https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?auto=format&fit=crop&w=600&q=80",
     description: "Precision 0.1g resolution with tare function and tempered glass platform.",
     category: "Home",
@@ -439,7 +439,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   // ═══════════════════════════════════════════
   {
     name: "Complete Skincare Set",
-    price: 8399,
+    price: 1499,
     image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=600&q=80",
     description: "Cleanser, toner, serum, and moisturizer in one premium gift box for radiant skin.",
     category: "Beauty",
@@ -450,7 +450,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Hydrating Face Moisturizer",
-    price: 4199,
+    price: 699,
     image: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=600&q=80",
     description: "Lightweight gel-cream with hyaluronic acid for 72-hour deep hydration.",
     category: "Beauty",
@@ -460,7 +460,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Vitamin C Brightening Serum",
-    price: 6199,
+    price: 1099,
     image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80",
     description: "20% Vitamin C with ferulic acid for even tone, dark spots, and a youthful glow.",
     category: "Beauty",
@@ -470,7 +470,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Professional Makeup Brush Set",
-    price: 7899,
+    price: 1299,
     image: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=600&q=80",
     description: "12-piece synthetic brush set with bamboo handles for flawless foundation to contour.",
     category: "Beauty",
@@ -480,7 +480,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Matte Liquid Foundation",
-    price: 3699,
+    price: 549,
     image: "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?auto=format&fit=crop&w=600&q=80",
     description: "Full-coverage matte finish in 24 shades. Buildable, lightweight, and long-wearing.",
     category: "Beauty",
@@ -490,7 +490,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Matte Lipstick Collection",
-    price: 2799,
+    price: 349,
     image: "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=600&q=80",
     description: "Creamy matte formula in 6 bold shades. Hydrating, transfer-proof, and vibrant.",
     category: "Beauty",
@@ -500,7 +500,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Charcoal Peel-Off Face Mask",
-    price: 1999,
+    price: 249,
     image: "https://images.unsplash.com/photo-1583209814683-c023dd293cc6?auto=format&fit=crop&w=600&q=80",
     description: "Deep-cleansing activated charcoal mask that unclogs pores and removes blackheads.",
     category: "Beauty",
@@ -510,7 +510,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Nourishing Shampoo & Conditioner",
-    price: 5599,
+    price: 899,
     image: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=600&q=80",
     description: "Sulfate-free duo infused with argan oil for silky smooth, frizz-free hair.",
     category: "Beauty",
@@ -520,7 +520,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Luxury Perfume — Oud & Rose",
-    price: 13999,
+    price: 2499,
     image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80",
     description: "Opulent blend of Arabian oud, Damask rose, and warm amber. Lasts 8+ hours.",
     category: "Beauty",
@@ -531,7 +531,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Gel Nail Polish Set",
-    price: 3399,
+    price: 499,
     image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=600&q=80",
     description: "12-piece gel polish set with UV-cured formula. Chip-resistant for up to 3 weeks.",
     category: "Beauty",
@@ -541,7 +541,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Professional Hair Dryer",
-    price: 11199,
+    price: 2199,
     image: "https://images.unsplash.com/photo-1587017539504-67cfbddac569?auto=format&fit=crop&w=600&q=80",
     description: "2200W ionic hair dryer with 3 heat settings and diffuser attachment. Salon-quality results.",
     category: "Beauty",
@@ -551,7 +551,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Makeup Brush Cleaning Mat",
-    price: 1699,
+    price: 199,
     image: "https://images.unsplash.com/photo-1612817288484-6f916006741a?auto=format&fit=crop&w=600&q=80",
     description: "Textured silicone mat for deep-cleaning brushes and sponges in seconds.",
     category: "Beauty",
@@ -561,7 +561,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Eau de Parfum — Floral",
-    price: 10099,
+    price: 1999,
     image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80",
     description: "Delicate floral bouquet with notes of jasmine, peony, and white musk. 100ml bottle.",
     category: "Beauty",
@@ -571,7 +571,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Gentle Foaming Cleanser",
-    price: 3099,
+    price: 399,
     image: "https://images.unsplash.com/photo-1619380061814-58f03707f082?auto=format&fit=crop&w=600&q=80",
     description: "pH-balanced foam cleanser with green tea extract for sensitive and oily skin types.",
     category: "Beauty",
@@ -585,7 +585,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   // ═══════════════════════════════════════════
   {
     name: "Minimal Leather Tote Bag",
-    price: 25199,
+    price: 2299,
     image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80",
     description: "A structured everyday tote crafted from smooth leather with a clean silhouette.",
     category: "Accessories",
@@ -596,7 +596,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Everyday Analog Watch",
-    price: 36099,
+    price: 2499,
     image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=600&q=80",
     description: "Classic analog watch with a minimalist dial and comfortable leather strap.",
     category: "Accessories",
@@ -606,7 +606,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Minimalist Sunglasses",
-    price: 9599,
+    price: 1499,
     image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=600&q=80",
     description: "UV400 lenses with a lightweight frame — clean design, comfortable fit.",
     category: "Accessories",
@@ -616,7 +616,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Soft Wool Beanie",
-    price: 4499,
+    price: 449,
     image: "https://images.unsplash.com/photo-1576871337622-98d48d1cf531?auto=format&fit=crop&w=600&q=80",
     description: "Warm knit beanie with a soft feel and a clean, minimal look.",
     category: "Accessories",
@@ -626,7 +626,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Leather Card Wallet",
-    price: 11199,
+    price: 1699,
     image: "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=600&q=80",
     description: "Slim profile with 6 card slots and RFID blocking. Fits perfectly in any pocket.",
     category: "Accessories",
@@ -636,7 +636,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Polarized Aviator Sunglasses",
-    price: 16599,
+    price: 1999,
     image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=600&q=80",
     description: "Classic aviator frame with polarized lenses for 100% UV protection.",
     category: "Accessories",
@@ -647,7 +647,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Knit Scarf",
-    price: 8399,
+    price: 1299,
     image: "https://images.unsplash.com/photo-1520903920243-00d872a2d1c9?auto=format&fit=crop&w=600&q=80",
     description: "Chunky knit scarf in premium acrylic. Warm, soft, and stylish.",
     category: "Accessories",
@@ -657,7 +657,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Leather Keychain Holder",
-    price: 4199,
+    price: 399,
     image: "https://images.unsplash.com/photo-1622560480654-d96214fdc887?auto=format&fit=crop&w=600&q=80",
     description: "Hand-stitched genuine leather keychain with solid brass hardware.",
     category: "Accessories",
@@ -667,7 +667,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Woven Straw Hat",
-    price: 8999,
+    price: 1399,
     image: "https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=600&q=80",
     description: "Classic panama-style straw hat with a ribbon band. Sun protection meets style.",
     category: "Accessories",
@@ -677,7 +677,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Wooden Watch Display Stand",
-    price: 5599,
+    price: 699,
     image: "https://images.unsplash.com/photo-1594223274512-ad4803739b7c?auto=format&fit=crop&w=600&q=80",
     description: "Elegant bamboo display stand with compartments for watches, rings, and keys.",
     category: "Accessories",
@@ -687,7 +687,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Canvas Belt",
-    price: 6999,
+    price: 999,
     image: "https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&w=600&q=80",
     description: "Woven canvas with brushed metal buckle. Casual style that goes with everything.",
     category: "Accessories",
@@ -697,7 +697,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Travel Organizer Pouch",
-    price: 4799,
+    price: 549,
     image: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?auto=format&fit=crop&w=600&q=80",
     description: "Water-resistant nylon pouch with mesh pockets for cables, passport, and cards.",
     category: "Accessories",
@@ -707,7 +707,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Canvas Travel Backpack",
-    price: 22199,
+    price: 2199,
     image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80",
     description: "Organized compartments, padded laptop sleeve, and durable fabric for everyday carry.",
     category: "Accessories",
@@ -722,7 +722,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   // ═══════════════════════════════════════════
   {
     name: "Classic White Sneakers",
-    price: 20999,
+    price: 2499,
     image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=600&q=80",
     description: "Comfortable low-top sneakers with durable stitching and a timeless look.",
     category: "Footwear",
@@ -733,7 +733,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Running Shoes — Neutral",
-    price: 30599,
+    price: 3799,
     image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80",
     description: "Lightweight running shoes with cushioned support for daily runs.",
     category: "Footwear",
@@ -743,7 +743,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Casual Slip-On Loafers",
-    price: 23599,
+    price: 2799,
     image: "https://images.unsplash.com/photo-1528702748617-c64d49f918af?auto=format&fit=crop&w=600&q=80",
     description: "Easy slip-on loafers with a comfortable footbed for all-day wear.",
     category: "Footwear",
@@ -753,7 +753,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "High-Top Canvas Sneakers",
-    price: 18199,
+    price: 2199,
     image: "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?auto=format&fit=crop&w=600&q=80",
     description: "Retro high-top design with canvas upper and vulcanized rubber sole.",
     category: "Footwear",
@@ -763,7 +763,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Leather Chelsea Boots",
-    price: 38999,
+    price: 4299,
     image: "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?auto=format&fit=crop&w=600&q=80",
     description: "Premium leather with elastic side panels. Sleek for the office, tough for the street.",
     category: "Footwear",
@@ -774,7 +774,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Sport Sandals",
-    price: 15399,
+    price: 1799,
     image: "https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=600&q=80",
     description: "Adjustable straps with arch support and rugged outsole for outdoor adventures.",
     category: "Footwear",
@@ -784,7 +784,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Platform Sneakers",
-    price: 24999,
+    price: 2999,
     image: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=600&q=80",
     description: "Elevated platform sole with chunky silhouette for a bold streetwear look.",
     category: "Footwear",
@@ -794,7 +794,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Waterproof Hiking Boots",
-    price: 41799,
+    price: 4499,
     image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=600&q=80",
     description: "Gore-Tex membrane with Vibram outsole for reliable trail performance.",
     category: "Footwear",
@@ -804,7 +804,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Knit Runner Shoes",
-    price: 26399,
+    price: 3299,
     image: "https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=600&q=80",
     description: "Engineered knit upper with responsive foam midsole for all-day comfort.",
     category: "Footwear",
@@ -814,7 +814,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Retro Training Sneakers",
-    price: 27799,
+    price: 3499,
     image: "https://images.unsplash.com/photo-1603808033192-082d6919d3e1?auto=format&fit=crop&w=600&q=80",
     description: "Vintage-inspired trainers with suede overlays and a cushioned rubber sole.",
     category: "Footwear",
@@ -824,7 +824,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Canvas Espadrilles",
-    price: 13999,
+    price: 1499,
     image: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=600&q=80",
     description: "Lightweight canvas with jute rope sole. The ultimate warm-weather shoe.",
     category: "Footwear",
@@ -834,7 +834,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Trail Running Shoes",
-    price: 33399,
+    price: 3999,
     image: "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=600&q=80",
     description: "Aggressive outsole lugs with reinforced toe cap for off-road performance.",
     category: "Footwear",
@@ -848,7 +848,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   // ═══════════════════════════════════════════
   {
     name: "Premium Yoga Mat",
-    price: 11199,
+    price: 1899,
     image: "https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?auto=format&fit=crop&w=600&q=80",
     description: "Non-slip mat with cushioned support — ideal for yoga, pilates, and stretching.",
     category: "Sports",
@@ -859,7 +859,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Adjustable Dumbbell Set",
-    price: 44599,
+    price: 3499,
     image: "https://images.unsplash.com/photo-1638536532686-d610adfc8e5c?auto=format&fit=crop&w=600&q=80",
     description: "Space-saving adjustable dumbbells for full-body workouts at home.",
     category: "Sports",
@@ -869,7 +869,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Resistance Band Set",
-    price: 6999,
+    price: 999,
     image: "https://images.unsplash.com/photo-1598289431512-b97b0917affc?auto=format&fit=crop&w=600&q=80",
     description: "5-level resistance bands with handles, door anchor, and carrying bag.",
     category: "Sports",
@@ -879,7 +879,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Stainless Steel Shaker Bottle",
-    price: 5599,
+    price: 749,
     image: "https://images.unsplash.com/photo-1570831739435-6601aa3fa4fb?auto=format&fit=crop&w=600&q=80",
     description: "Double-wall insulated shaker with mixing ball. Keeps drinks cold for hours.",
     category: "Sports",
@@ -889,7 +889,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Jump Rope — Speed",
-    price: 4199,
+    price: 499,
     image: "https://images.unsplash.com/photo-1434608519344-49d77a699e1d?auto=format&fit=crop&w=600&q=80",
     description: "Lightweight speed rope with ball bearings and adjustable steel cable.",
     category: "Sports",
@@ -899,7 +899,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Foam Roller — Deep Tissue",
-    price: 8399,
+    price: 1299,
     image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80",
     description: "High-density EVA foam with textured surface for muscle recovery and myofascial release.",
     category: "Sports",
@@ -909,7 +909,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Kettlebell — Cast Iron 16kg",
-    price: 13999,
+    price: 2499,
     image: "https://images.unsplash.com/photo-1517963879433-6ad2b056d712?auto=format&fit=crop&w=600&q=80",
     description: "Single-cast iron with powder-coated handle. Perfect for swings and Turkish get-ups.",
     category: "Sports",
@@ -919,7 +919,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Workout Gloves — Gel Padded",
-    price: 6199,
+    price: 899,
     image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=600&q=80",
     description: "Breathable mesh with gel palm padding and wrist wrap support for lifting.",
     category: "Sports",
@@ -929,7 +929,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Ab Wheel Roller",
-    price: 5399,
+    price: 699,
     image: "https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=600&q=80",
     description: "Wide dual-wheel design with ergonomic grips for core strengthening.",
     category: "Sports",
@@ -939,7 +939,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Pull-Up Assist Bands",
-    price: 7899,
+    price: 1299,
     image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=600&q=80",
     description: "Set of 3 natural latex bands for pull-up assistance, stretching, and mobility.",
     category: "Sports",
@@ -949,7 +949,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Gym Duffel Bag 40L",
-    price: 8999,
+    price: 1499,
     image: "https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=600&q=80",
     description: "Spacious duffel with shoe compartment, wet pocket, and padded shoulder strap.",
     category: "Sports",
@@ -959,7 +959,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Battle Rope — 12m",
-    price: 11799,
+    price: 2199,
     image: "https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?auto=format&fit=crop&w=600&q=80",
     description: "Heavy-duty poly dacron rope with reinforced anchoring. Great for HIIT and conditioning.",
     category: "Sports",
@@ -973,7 +973,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   // ═══════════════════════════════════════════
   {
     name: "Stainless Steel Water Bottle",
-    price: 6999,
+    price: 1099,
     image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=600&q=80",
     description: "Insulated bottle keeps drinks cold for 24 hours. Leakproof lid and matte finish.",
     category: "Lifestyle",
@@ -983,7 +983,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Journal — Hardcover Dotted",
-    price: 5599,
+    price: 799,
     image: "https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&w=600&q=80",
     description: "160-page dotted journal with lay-flat binding. Perfect for bullet journaling.",
     category: "Lifestyle",
@@ -993,7 +993,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Cork Yoga Block Set",
-    price: 6199,
+    price: 999,
     image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80",
     description: "Set of 2 natural cork blocks with beveled edges. Firm, sustainable, and non-slip.",
     category: "Lifestyle",
@@ -1003,7 +1003,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Portable Picnic Blanket",
-    price: 9799,
+    price: 1999,
     image: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=600&q=80",
     description: "Waterproof backing with soft fleece top. Folds into a compact carry bag.",
     category: "Lifestyle",
@@ -1013,7 +1013,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Pour-Over Coffee Dripper",
-    price: 7899,
+    price: 1399,
     image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80",
     description: "Ceramic dripper with spiral ribs for optimal extraction. Makes 1-2 cups.",
     category: "Lifestyle",
@@ -1023,7 +1023,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Aromatherapy Essential Oil Set",
-    price: 8999,
+    price: 1799,
     image: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=600&q=80",
     description: "Set of 6 pure essential oils: lavender, eucalyptus, peppermint, tea tree, lemon, rosemary.",
     category: "Lifestyle",
@@ -1033,7 +1033,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Insulated Lunch Box",
-    price: 8399,
+    price: 1599,
     image: "https://images.unsplash.com/photo-1607082349566-187342175e2f?auto=format&fit=crop&w=600&q=80",
     description: "Leakproof stainless steel container with bamboo lid. Keeps food fresh for 6 hours.",
     category: "Lifestyle",
@@ -1043,7 +1043,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Indoor Herb Garden Kit",
-    price: 10099,
+    price: 2199,
     image: "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=600&q=80",
     description: "Grow 6 herbs at home: basil, parsley, cilantro, dill, thyme, and chives. Includes pots and seeds.",
     category: "Lifestyle",
@@ -1054,7 +1054,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Reusable Coffee Cup — Bamboo",
-    price: 4799,
+    price: 599,
     image: "https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?auto=format&fit=crop&w=600&q=80",
     description: "Bamboo fiber cup with silicone lid. Eco-friendly, dishwasher safe, 350ml capacity.",
     category: "Lifestyle",
@@ -1064,7 +1064,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Aroma Candle — Cedar & Vanilla",
-    price: 5199,
+    price: 699,
     image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80",
     description: "Warm cedar and soft vanilla notes for a cozy, relaxing atmosphere. 50hr burn time.",
     category: "Lifestyle",
@@ -1074,7 +1074,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Insulated Stainless Steel Thermos",
-    price: 7299,
+    price: 1199,
     image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80",
     description: "Double-wall vacuum insulation keeps drinks hot 12hrs or cold 24hrs. 750ml capacity.",
     category: "Lifestyle",
@@ -1084,7 +1084,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Canvas Tote — Eco Edition",
-    price: 3399,
+    price: 449,
     image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&w=600&q=80",
     description: "Heavy-duty organic cotton canvas tote with inner pocket. The sustainable everyday bag.",
     category: "Lifestyle",
@@ -1100,7 +1100,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   // ── Electronics ────────────────────────────
   {
     name: "Smart Home Hub",
-    price: 22399,
+    price: 5499,
     image: "https://images.unsplash.com/photo-1558089687-f282ffcbc126?auto=format&fit=crop&w=600&q=80",
     description: "Voice-controlled smart hub that connects all your home devices. Supports Zigbee, Z-Wave, and Matter protocols.",
     category: "Electronics",
@@ -1111,7 +1111,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Wireless Earbuds Pro",
-    price: 11199,
+    price: 2799,
     image: "https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?auto=format&fit=crop&w=600&q=80",
     description: "Active noise cancelling with transparency mode. 30-hour battery life with charging case.",
     category: "Electronics",
@@ -1121,7 +1121,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Portable Projector",
-    price: 33599,
+    price: 6999,
     image: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=600&q=80",
     description: "1080p native resolution with auto-keystone correction. Built-in streaming apps and 3-hour battery.",
     category: "Electronics",
@@ -1132,7 +1132,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Smart Speaker",
-    price: 16799,
+    price: 3999,
     image: "https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=600&q=80",
     description: "360-degree room-filling sound with built-in smart assistant. Multi-room audio sync supported.",
     category: "Electronics",
@@ -1144,7 +1144,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   // ── Home ──────────────────────────────────
   {
     name: "LED Strip Lights",
-    price: 3359,
+    price: 399,
     image: "https://images.unsplash.com/photo-1614624532983-4ce03382d63d?auto=format&fit=crop&w=600&q=80",
     description: "16 million color RGBIC LED strips with app control and music sync. 5-meter roll with adhesive backing.",
     category: "Home",
@@ -1154,7 +1154,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Bamboo Desk Organizer",
-    price: 5599,
+    price: 699,
     image: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80",
     description: "Multi-compartment bamboo organizer with phone stand, pen holder, and cable management slots.",
     category: "Home",
@@ -1164,7 +1164,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Scented Candle Set",
-    price: 4199,
+    price: 499,
     image: "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=600&q=80",
     description: "Set of 4 hand-poured soy wax candles: lavender, vanilla bean, sandalwood, and fresh linen. 40hr burn each.",
     category: "Home",
@@ -1174,7 +1174,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Minimalist Wall Art",
-    price: 6999,
+    price: 999,
     image: "https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&w=600&q=80",
     description: "Set of 3 abstract prints on premium matte paper. Ready-to-hang with included aluminum frame set.",
     category: "Home",
@@ -1186,7 +1186,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   // ── Beauty ────────────────────────────────
   {
     name: "Vitamin C Serum",
-    price: 3359,
+    price: 449,
     image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80",
     description: "20% Vitamin C with hyaluronic acid and vitamin E. Brightening formula for all skin types. 30ml bottle.",
     category: "Beauty",
@@ -1196,7 +1196,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Hair Styling Tool",
-    price: 8399,
+    price: 1499,
     image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=600&q=80",
     description: "Ceramic-coated 2-in-1 straightener and curler with adjustable temperature. 30-second heat-up.",
     category: "Beauty",
@@ -1206,7 +1206,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Organic Face Mask Set",
-    price: 2519,
+    price: 299,
     image: "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=600&q=80",
     description: "Set of 5 organic sheet masks: charcoal detox, vitamin C glow, hyaluronic hydration, retinol repair, green tea calm.",
     category: "Beauty",
@@ -1218,7 +1218,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   // ── Lifestyle ─────────────────────────────
   {
     name: "Reusable Water Bottle Premium",
-    price: 3359,
+    price: 399,
     image: "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?auto=format&fit=crop&w=600&q=80",
     description: "Double-wall insulated stainless steel bottle with built-in fruit infuser. 750ml capacity, BPA-free.",
     category: "Lifestyle",
@@ -1228,7 +1228,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Minimal Watch Band",
-    price: 2239,
+    price: 249,
     image: "https://images.unsplash.com/photo-1622434641406-a158123450f9?auto=format&fit=crop&w=600&q=80",
     description: "Premium silicone sport band with quick-release pins. Fits most 42-46mm watch cases. Sweat-proof.",
     category: "Lifestyle",
@@ -1238,7 +1238,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Travel Mug Premium",
-    price: 4759,
+    price: 549,
     image: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=600&q=80",
     description: "Vacuum-insulated stainless steel mug with leakproof lid. Keeps hot 8hrs, cold 12hrs. 473ml capacity.",
     category: "Lifestyle",
@@ -1250,7 +1250,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   // ── Clothing ──────────────────────────────
   {
     name: "Oversized Streetwear Tee",
-    price: 3359,
+    price: 799,
     image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=600&q=80",
     description: "Heavyweight 220gsm cotton with dropped shoulders and boxy fit. Garment-dyed for a washed vintage look.",
     category: "Clothing",
@@ -1260,7 +1260,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Cargo Vest",
-    price: 6159,
+    price: 1699,
     image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=600&q=80",
     description: "Lightweight ripstop vest with 6 utility pockets. Water-resistant finish. Perfect layering piece.",
     category: "Clothing",
@@ -1270,7 +1270,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Athletic Joggers",
-    price: 4759,
+    price: 1299,
     image: "https://images.unsplash.com/photo-1556906781-9a412961c28c?auto=format&fit=crop&w=600&q=80",
     description: "Tapered-fit joggers with zip pockets and elastic cuffs. Moisture-wicking fabric for gym or casual wear.",
     category: "Clothing",
@@ -1282,7 +1282,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   // ── Footwear ──────────────────────────────
   {
     name: "Chunky Sneakers",
-    price: 11199,
+    price: 1299,
     image: "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?auto=format&fit=crop&w=600&q=80",
     description: "Triple-layer chunky sole with breathable mesh upper and memory foam insole. Statement streetwear shoe.",
     category: "Footwear",
@@ -1292,7 +1292,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Slide Sandals",
-    price: 3359,
+    price: 699,
     image: "https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=600&q=80",
     description: "EVA foam slides with contoured footbed and quick-dry strap. Pool, gym, or lounge ready.",
     category: "Footwear",
@@ -1304,7 +1304,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   // ── Sports ────────────────────────────────
   {
     name: "Resistance Band Set Premium",
-    price: 4759,
+    price: 599,
     image: "https://images.unsplash.com/photo-1519861531473-9200262188bf?auto=format&fit=crop&w=600&q=80",
     description: "5-tier latex resistance bands with padded handles, door anchor, ankle straps, and carry bag.",
     category: "Sports",
@@ -1314,7 +1314,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Yoga Mat Premium",
-    price: 6999,
+    price: 999,
     image: "https://images.unsplash.com/photo-1608156639585-b3a032ef9689?auto=format&fit=crop&w=600&q=80",
     description: "6mm eco-friendly TPE mat with alignment marks and anti-slip texture. Includes carrying strap.",
     category: "Sports",
@@ -1327,7 +1327,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   // ── Accessories ───────────────────────────
   {
     name: "Laptop Sleeve Premium",
-    price: 4759,
+    price: 499,
     image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=600&q=80",
     description: "Water-resistant neoprene sleeve with plush interior lining. Fits up to 15.6-inch laptops. Front accessory pocket.",
     category: "Accessories",
@@ -1337,7 +1337,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Phone Case Premium",
-    price: 1959,
+    price: 249,
     image: "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&w=600&q=80",
     description: "Military-grade drop protection with slim profile. MagSafe compatible with raised camera lip.",
     category: "Accessories",
@@ -1347,7 +1347,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Crossbody Bag",
-    price: 6999,
+    price: 999,
     image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80",
     description: "Compact nylon crossbody with adjustable strap and multiple compartments. Water-resistant zippers.",
     category: "Accessories",
@@ -1360,7 +1360,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   // ── Extra (25th product) ──────────────────
   {
     name: "Wireless Power Bank 20000mAh",
-    price: 5599,
+    price: 1499,
     image: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&w=600&q=80",
     description: "20000mAh portable charger with 15W wireless and 22.5W wired fast charging. LED display and dual USB ports.",
     category: "Electronics",
@@ -1374,7 +1374,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   // ═══════════════════════════════════════════
   {
     name: "Bluetooth Keyboard",
-    price: 8399,
+    price: 1999,
     image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=600&q=80",
     description: "Ultra-slim wireless keyboard with backlit keys and 3-device switching. USB-C rechargeable.",
     category: "Electronics",
@@ -1384,7 +1384,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Webcam HD Pro",
-    price: 6999,
+    price: 1799,
     image: "https://images.unsplash.com/photo-1587826080692-f439cd0b70da?auto=format&fit=crop&w=600&q=80",
     description: "1080p HD webcam with auto-focus, noise-cancelling mic, and built-in ring light. Plug and play.",
     category: "Electronics",
@@ -1394,7 +1394,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Denim Jacket",
-    price: 9599,
+    price: 1299,
     image: "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=600&q=80",
     description: "Classic-fit denim jacket with brass buttons and distressed wash. 100% cotton, built to last.",
     category: "Clothing",
@@ -1405,7 +1405,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Wool Beanie",
-    price: 2239,
+    price: 599,
     image: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?auto=format&fit=crop&w=600&q=80",
     description: "Soft merino wool blend beanie with fleece lining. One size fits all, 6 color options.",
     category: "Clothing",
@@ -1415,7 +1415,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Ceramic Plant Pot Set",
-    price: 4199,
+    price: 499,
     image: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=600&q=80",
     description: "Set of 3 minimalist ceramic pots in matte white with bamboo saucers. Drainage holes included.",
     category: "Home",
@@ -1425,7 +1425,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Woven Storage Basket",
-    price: 3359,
+    price: 399,
     image: "https://images.unsplash.com/photo-1616627561839-074385245ff6?auto=format&fit=crop&w=600&q=80",
     description: "Handwoven seagrass basket with handles. Perfect for blankets, toys, or laundry. Collapsible.",
     category: "Home",
@@ -1435,7 +1435,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "USB Desk Fan",
-    price: 2799,
+    price: 299,
     image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80",
     description: "Whisper-quiet 3-speed desk fan with 360° rotation. USB-C powered, travel-friendly foldable design.",
     category: "Home",
@@ -1445,7 +1445,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Makeup Brush Set",
-    price: 3359,
+    price: 449,
     image: "https://images.unsplash.com/photo-1631214500115-598fc2cb8ada?auto=format&fit=crop&w=600&q=80",
     description: "12-piece professional brush set with synthetic bristles. Includes travel case and cleaning mitt.",
     category: "Beauty",
@@ -1455,7 +1455,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Lip Gloss Collection",
-    price: 2519,
+    price: 299,
     image: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=600&q=80",
     description: "6-shade lip gloss set with high-shine finish and hydrating formula. Non-sticky, long-lasting.",
     category: "Beauty",
@@ -1465,7 +1465,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Nail Polish Set",
-    price: 1679,
+    price: 199,
     image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=600&q=80",
     description: "8-bottle gel nail polish set with base and top coat. Chip-resistant, 14-day wear formula.",
     category: "Beauty",
@@ -1475,7 +1475,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Polarized Sunglasses",
-    price: 5599,
+    price: 699,
     image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=600&q=80",
     description: "Lightweight titanium frame sunglasses with UV400 polarized lenses. Includes hard case.",
     category: "Accessories",
@@ -1486,7 +1486,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Leather Passport Holder",
-    price: 3359,
+    price: 349,
     image: "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=600&q=80",
     description: "Genuine leather passport cover with RFID blocking. 6 card slots and boarding pass pocket.",
     category: "Accessories",
@@ -1496,7 +1496,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Canvas Tote Bag",
-    price: 4199,
+    price: 399,
     image: "https://images.unsplash.com/photo-1597636367664-83d73e89a6b1?auto=format&fit=crop&w=600&q=80",
     description: "Heavy-duty 16oz canvas tote with reinforced handles and inner zip pocket. Machine washable.",
     category: "Accessories",
@@ -1506,7 +1506,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Running Shoes Ultra",
-    price: 13999,
+    price: 1499,
     image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=600&q=80",
     description: "Lightweight mesh running shoes with responsive foam sole and reflective details. All-terrain grip.",
     category: "Footwear",
@@ -1516,7 +1516,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Leather Loafers",
-    price: 11199,
+    price: 1299,
     image: "https://images.unsplash.com/photo-1614252369475-531eba835eb1?auto=format&fit=crop&w=600&q=80",
     description: "Italian leather penny loafers with hand-stitched detailing. Cushioned insole for all-day comfort.",
     category: "Footwear",
@@ -1526,7 +1526,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Jump Rope Pro",
-    price: 1679,
+    price: 249,
     image: "https://images.unsplash.com/photo-1434682881908-b43d0467b798?auto=format&fit=crop&w=600&q=80",
     description: "Speed jump rope with ball bearings and adjustable steel cable. Anti-slip aluminum handles.",
     category: "Sports",
@@ -1536,7 +1536,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Foam Roller",
-    price: 3359,
+    price: 399,
     image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80",
     description: "High-density EVA foam roller with textured surface for deep tissue massage. 18-inch, includes guide.",
     category: "Sports",
@@ -1546,7 +1546,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Portable Charger 20000mAh",
-    price: 5599,
+    price: 799,
     image: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?auto=format&fit=crop&w=600&q=80",
     description: "Slim 20000mAh power bank with 22.5W PD fast charge. Dual USB-C + USB-A, LED indicator.",
     category: "Lifestyle",
@@ -1556,7 +1556,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   },
   {
     name: "Journal Notebook Premium",
-    price: 2799,
+    price: 349,
     image: "https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&w=600&q=80",
     description: "A5 hardcover journal with 192gsm dot grid pages. Ribbon bookmark, elastic closure, lay-flat binding.",
     category: "Lifestyle",

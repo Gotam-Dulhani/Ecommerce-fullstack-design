@@ -5,7 +5,7 @@ import { Shield, Truck, HeartHandshake, Star } from "lucide-react";
 
 const values = [
   { icon: Shield, title: "Quality First", desc: "Every product is handpicked and tested before it earns a spot in our store." },
-  { icon: Truck, title: "Fast Delivery", desc: "Free shipping on orders over Rs. 42,000. Most orders arrive within 3-5 business days." },
+  { icon: Truck, title: "Fast Delivery", desc: "Free shipping on orders over Rs. 5,000. Most orders arrive within 3-5 business days." },
   { icon: HeartHandshake, title: "Customer Obsessed", desc: "Your satisfaction is our priority. Reach out anytime — we respond within 24 hours." },
   { icon: Star, title: "Curated Selection", desc: "We stock only what we'd use ourselves. No filler, no compromise." },
 ];

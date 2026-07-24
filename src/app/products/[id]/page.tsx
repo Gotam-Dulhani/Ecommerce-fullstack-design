@@ -74,12 +74,12 @@ export default function ProductDetailsPage() {
         <span className="text-white font-medium truncate max-w-[200px]">{product.name}</span>
       </nav>
 
-      <div className="grid gap-12 lg:grid-cols-[1.3fr,1fr] lg:items-start">
+      <div className="grid gap-8 lg:grid-cols-[1fr,1fr] lg:items-start">
         {/* Image */}
         <div className="overflow-hidden rounded-xl bg-[var(--surface)] border border-white/5">
-          <div className="relative aspect-[4/5] w-full">
+          <div className="relative w-full max-h-[500px] sm:max-h-[600px]">
             {product.image ? (
-              <img src={product.image} alt={product.name} className="block h-full w-full object-cover" style={{ height: "100%", width: "100%", objectFit: "cover" }} />
+              <img src={product.image} alt={product.name} className="block w-full h-auto max-h-[500px] sm:max-h-[600px] object-cover" style={{ width: "100%", height: "auto", maxHeight: "600px", objectFit: "cover" }} />
             ) : (
               <div className="flex h-full w-full items-center justify-center bg-[var(--surface)]">
                 <span className="text-xs text-zinc-600">No image</span>
@@ -167,7 +167,7 @@ export default function ProductDetailsPage() {
               <Truck className="h-5 w-5 text-[var(--gold)]" />
               <div>
                 <p className="text-xs font-semibold text-white">Free shipping</p>
-                <p className="text-[10px] text-zinc-500">Over Rs. 42,000</p>
+                <p className="text-[10px] text-zinc-500">Over Rs. 5,000</p>
               </div>
             </div>
             <div className="flex flex-col items-center gap-2 text-center">

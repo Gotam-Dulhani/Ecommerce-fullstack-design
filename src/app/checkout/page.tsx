@@ -18,7 +18,7 @@ export default function CheckoutPage() {
   const [address, setAddress] = useState<ShippingAddress>({
     fullName: "", phone: "", addressLine1: "", addressLine2: "", city: "", state: "", postalCode: "", country: "Pakistan",
   });
-  const shipping = useMemo(() => (totalPrice > 42000 ? 0 : totalItems > 0 ? 2799 : 0), [totalItems, totalPrice]);
+  const shipping = useMemo(() => (totalPrice > 5000 ? 0 : totalItems > 0 ? 250 : 0), [totalItems, totalPrice]);
   const grandTotal = totalPrice + shipping;
 
   useEffect(() => {

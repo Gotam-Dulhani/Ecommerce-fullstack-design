@@ -64,7 +64,7 @@ export async function POST(req: Request) {
           </div>
 
           <div style="border:1px solid #e5e7eb;border-radius:12px;padding:16px;margin-bottom:24px;">
-            <p style="font-size:13px;color:#666;margin:0;">🛍️ Browse our curated collection of 148+ premium products and use your gift card at checkout. Free shipping on orders over Rs. 42,000.</p>
+            <p style="font-size:13px;color:#666;margin:0;">🛍️ Browse our curated collection of 148+ premium products and use your gift card at checkout. Free shipping on orders over Rs. 5,000.</p>
           </div>
 
           <div style="text-align:center;margin-bottom:24px;">

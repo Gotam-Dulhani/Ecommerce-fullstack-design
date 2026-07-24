@@ -7,7 +7,7 @@ import { Minus, Plus, ShoppingBag } from "lucide-react";
 
 export default function CartPage() {
   const { items, totalItems, totalPrice, updateQuantity, removeFromCart } = useCart();
-  const shipping = totalPrice >= 42000 ? 0 : 2799;
+  const shipping = totalPrice >= 5000 ? 0 : 250;
   const total = totalPrice + shipping;
 
   return (
@@ -88,7 +88,7 @@ export default function CartPage() {
               </div>
               {shipping > 0 && (
                 <p className="rounded-lg bg-emerald-500/10 px-4 py-2.5 text-xs font-medium text-emerald-500">
-                  Add {formatPrice(42000 - totalPrice)} more for free shipping
+                  Add {formatPrice(5000 - totalPrice)} more for free shipping
                 </p>
               )}
               <div className="border-t border-dashed border-white/10 pt-4">

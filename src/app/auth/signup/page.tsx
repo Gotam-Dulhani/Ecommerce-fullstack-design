@@ -54,7 +54,7 @@ export default function SignupPage() {
           <div className="mt-8 flex items-center justify-center gap-6 text-xs text-zinc-500">
             <div className="flex items-center gap-2">
               <div className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-              Free shipping over Rs. 42,000
+              Free shipping over Rs. 5,000
             </div>
             <div className="flex items-center gap-2">
               <div className="h-1.5 w-1.5 rounded-full bg-emerald-500" />

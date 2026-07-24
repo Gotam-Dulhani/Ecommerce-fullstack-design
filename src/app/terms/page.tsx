@@ -36,7 +36,7 @@ export default function TermsPage() {
 
           <section>
             <h2 className="text-lg font-bold text-white mb-3">5. Shipping and Delivery</h2>
-            <p>We ship to addresses within Pakistan. Standard delivery times are estimates and may vary. Free shipping is available on orders above Rs. 42,000. A flat shipping fee of Rs. 2,799 applies to orders below this threshold.</p>
+            <p>We ship to addresses within Pakistan. Standard delivery times are estimates and may vary. Free shipping is available on orders above Rs. 5,000. A flat shipping fee of Rs. 250 applies to orders below this threshold.</p>
           </section>
 
           <section>

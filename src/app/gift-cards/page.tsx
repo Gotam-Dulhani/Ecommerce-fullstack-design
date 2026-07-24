@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { Gift, CreditCard, Send, CheckCircle, ArrowLeft, Sparkles } from "lucide-react";
 import { formatPrice } from "../../lib/utils";
-import { sendGiftCard } from "../../lib/emailjs";
 
 const DENOMINATIONS = [1000, 2500, 5000, 10000, 25000];
 
@@ -39,23 +38,12 @@ export default function GiftCardsPage() {
     const code = generateGiftCode();
     setGiftCode(code);
     setSending(true);
-    try {
-      const sent = await sendGiftCard({
-        to: recipientEmail,
-        recipientName,
-        senderName,
-        amount: selectedAmount,
-        giftCode: code,
-        message,
-      });
-      setEmailSent(sent);
-    } catch {
-      setEmailSent(false);
-    } finally {
-      setSending(false);
-      setPurchased(true);
-      setStep("success");
-    }
+    // Simulate a brief delay for UX
+    await new Promise((r) => setTimeout(r, 800));
+    setEmailSent(false);
+    setSending(false);
+    setPurchased(true);
+    setStep("success");
   };
 
   const reset = () => {

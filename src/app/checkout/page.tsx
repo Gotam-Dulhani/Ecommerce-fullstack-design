@@ -7,6 +7,7 @@ import { useAuth } from "../../context/AuthContext";
 import { useCart } from "../../context/CartContext";
 import { createOrder, type ShippingAddress } from "../../lib/orders";
 import { formatPrice } from "../../lib/utils";
+import { sendOrderConfirmation } from "../../lib/emailjs";
 
 export default function CheckoutPage() {
   const router = useRouter();
@@ -51,7 +52,12 @@ export default function CheckoutPage() {
         address: { ...address, fullName: address.fullName.trim(), phone: address.phone.trim(), addressLine1: address.addressLine1.trim(), addressLine2: address.addressLine2?.trim() || "", city: address.city.trim(), state: address.state?.trim() || "", postalCode: address.postalCode.trim(), country: address.country.trim() },
       });
       if (user.email) {
-        void fetch("/api/order-confirmation", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ to: user.email, orderId, total: grandTotal, items: items.map((it) => ({ name: it.product.name, quantity: it.quantity, price: it.product.price })) }) });
+        void sendOrderConfirmation({
+          to: user.email,
+          orderId,
+          total: grandTotal,
+          items: items.map((it) => ({ name: it.product.name, quantity: it.quantity, price: it.product.price })),
+        });
       }
       clearCart();
       router.push(`/checkout/success?orderId=${encodeURIComponent(orderId)}`);

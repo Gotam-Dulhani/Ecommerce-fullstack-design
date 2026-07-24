@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Gift, CreditCard, Send, CheckCircle, ArrowLeft, Sparkles } from "lucide-react";
 import { formatPrice } from "../../lib/utils";
+import { sendGiftCard } from "../../lib/emailjs";
 
 const DENOMINATIONS = [1000, 2500, 5000, 10000, 25000];
 
@@ -39,20 +40,15 @@ export default function GiftCardsPage() {
     setGiftCode(code);
     setSending(true);
     try {
-      const res = await fetch("/api/send-gift-card", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          to: recipientEmail,
-          recipientName,
-          senderName,
-          amount: selectedAmount,
-          giftCode: code,
-          message,
-        }),
+      const sent = await sendGiftCard({
+        to: recipientEmail,
+        recipientName,
+        senderName,
+        amount: selectedAmount,
+        giftCode: code,
+        message,
       });
-      const data = await res.json();
-      setEmailSent(data.ok === true);
+      setEmailSent(sent);
     } catch {
       setEmailSent(false);
     } finally {

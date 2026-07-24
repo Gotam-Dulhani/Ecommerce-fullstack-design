@@ -29,14 +29,37 @@ export default function GiftCardsPage() {
   const [message, setMessage] = useState("");
   const [giftCode, setGiftCode] = useState("");
   const [purchased, setPurchased] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [emailSent, setEmailSent] = useState(false);
 
   const selectedAmount = customAmount ? parseInt(customAmount) || 0 : amount;
 
-  const handlePurchase = () => {
+  const handlePurchase = async () => {
     const code = generateGiftCode();
     setGiftCode(code);
-    setPurchased(true);
-    setStep("success");
+    setSending(true);
+    try {
+      const res = await fetch("/api/send-gift-card", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          to: recipientEmail,
+          recipientName,
+          senderName,
+          amount: selectedAmount,
+          giftCode: code,
+          message,
+        }),
+      });
+      const data = await res.json();
+      setEmailSent(data.ok === true);
+    } catch {
+      setEmailSent(false);
+    } finally {
+      setSending(false);
+      setPurchased(true);
+      setStep("success");
+    }
   };
 
   const reset = () => {
@@ -293,9 +316,10 @@ export default function GiftCardsPage() {
               <button
                 type="button"
                 onClick={handlePurchase}
-                className="flex-1 rounded-full bg-[var(--gold)] py-3.5 text-xs font-bold uppercase tracking-wider text-black hover:bg-[var(--gold-dim)] transition-colors"
+                disabled={sending}
+                className="flex-1 rounded-full bg-[var(--gold)] py-3.5 text-xs font-bold uppercase tracking-wider text-black hover:bg-[var(--gold-dim)] transition-colors disabled:opacity-50"
               >
-                Purchase gift card
+                {sending ? "Sending..." : "Purchase gift card"}
               </button>
             </div>
           </div>
@@ -313,6 +337,12 @@ export default function GiftCardsPage() {
                 <p className="mt-2 text-sm text-zinc-400">
                   A {formatPrice(selectedAmount)} gift card has been sent to {recipientEmail}.
                 </p>
+                {emailSent && (
+                  <p className="mt-1 text-xs text-emerald-500">Email delivered successfully.</p>
+                )}
+                {!emailSent && (
+                  <p className="mt-1 text-xs text-zinc-500">Email could not be sent — share the code manually.</p>
+                )}
               </div>
 
               {/* Generated code */}

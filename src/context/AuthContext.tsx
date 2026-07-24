@@ -14,6 +14,7 @@ import {
   signOut,
   createUserWithEmailAndPassword,
   sendEmailVerification,
+  sendPasswordResetEmail,
   reload,
   updateProfile,
   type User,
@@ -36,6 +37,7 @@ type AuthContextValue = {
   resendEmailVerification: () => Promise<void>;
   refreshUser: () => Promise<User | null>;
   signOutUser: () => Promise<void>;
+  resetPassword: (email: string) => Promise<void>;
   isAdmin: boolean;
 };
 
@@ -142,6 +144,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     await signOut(getFirebaseAuth());
   };
 
+  const resetPassword = async (email: string) => {
+    await sendPasswordResetEmail(getFirebaseAuth(), email);
+  };
+
   const adminEmail = process.env.NEXT_PUBLIC_ADMIN_EMAIL;
   const isAdmin =
     !!user && !!adminEmail && user.email === adminEmail && user.emailVerified;
@@ -155,6 +161,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     resendEmailVerification,
     refreshUser,
     signOutUser,
+    resetPassword,
     isAdmin,
   };
 

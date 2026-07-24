@@ -6,6 +6,7 @@ import { CartProvider } from "../context/CartContext";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { ConfigBanner } from "../components/ConfigBanner";
+import { AnnouncementBar } from "../components/AnnouncementBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,8 +19,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ShopNest – Modern ecommerce demo",
-  description: "A polished ecommerce demo built with Next.js, Firebase and a modern UI.",
+  title: "ShopNest — Premium Shopping Experience",
+  description:
+    "Discover curated collections, top-rated products, and a seamless shopping experience. Built with Next.js + Firebase.",
 };
 
 export default function RootLayout({
@@ -28,17 +30,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <AuthProvider>
           <ConfigBanner />
           <CartProvider>
+            <AnnouncementBar />
             <Navbar />
-            <main className="min-h-screen pb-14">
-              {children}
-            </main>
+            <main className="min-h-screen pb-14">{children}</main>
             <Footer />
           </CartProvider>
         </AuthProvider>

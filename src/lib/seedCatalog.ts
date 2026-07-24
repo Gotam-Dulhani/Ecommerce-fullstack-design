@@ -288,7 +288,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   {
     name: "Slim Fit Dress Shirt",
     price: 18199,
-    image: "https://images.unsplash.com/photo-1434389677669-e08b4cda3a86?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=600&q=80",
     description: "Non-iron cotton with a modern slim cut. The go-to shirt for offices and dinners.",
     category: "Clothing",
     stock: 34,
@@ -560,7 +560,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   {
     name: "Eau de Parfum — Floral",
     price: 10099,
-    image: "https://images.unsplash.com/photo-1590874103328-eac38ef6d215?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80",
     description: "Delicate floral bouquet with notes of jasmine, peony, and white musk. 100ml bottle.",
     category: "Beauty",
     stock: 25,
@@ -1073,7 +1073,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   {
     name: "Insulated Stainless Steel Thermos",
     price: 7299,
-    image: "https://images.unsplash.com/photo-1602607687939-0498a2f8e1c6?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80",
     description: "Double-wall vacuum insulation keeps drinks hot 12hrs or cold 24hrs. 750ml capacity.",
     category: "Lifestyle",
     stock: 75,
@@ -1143,7 +1143,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   {
     name: "LED Strip Lights",
     price: 3359,
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1614624532983-4ce03382d63d?auto=format&fit=crop&w=600&q=80",
     description: "16 million color RGBIC LED strips with app control and music sync. 5-meter roll with adhesive backing.",
     category: "Home",
     stock: 100,
@@ -1173,7 +1173,7 @@ export const SEED_PRODUCTS: ProductInput[] = [
   {
     name: "Minimalist Wall Art",
     price: 6999,
-    image: "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&w=600&q=80",
     description: "Set of 3 abstract prints on premium matte paper. Ready-to-hang with included aluminum frame set.",
     category: "Home",
     stock: 40,
